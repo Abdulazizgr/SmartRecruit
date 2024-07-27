@@ -1,29 +1,28 @@
-// src/App.jsx
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import HRLogin from './pages/HR/HRLogin.jsx';
-// import Dashboard from './pages/Dashboard'; // Example path
-// import Homepage from './pages/Homepage'; // Example path
-// import ProtectedRoute from './components/ProtectedRoute'; // Custom ProtectedRoute component
-import { AuthProvider } from './auth/authContext.jsx';
+import Dashboard from './pages/HR/dashboard';
+import Homepage from './pages/User/homePage';
+import ProtectedRoute from './routes/protectedRoute';
+import { AuthProvider } from './auth/authContext';
+import TeamLeadLogin from './pages/TeamLead/teamLeadLogin';
+import ManagerLogin from './pages/Manager/ManagerLogin';
+import HRLogin from './pages/HR/HRLogin';
 
-function App() {
+
+const App = () => {
   return (
     <AuthProvider>
       <Router>
-        <div>
-          <p>nkedgljwrgwjrebgwe</p>
-          <h1>Welcome</h1>
-        </div>
         <Routes>
-          <Route path='/HRLogin' element={<HRLogin />} />
+          <Route path='/teamlead-login' element={ <TeamLeadLogin /> } />
+          <Route path='/manager-login' element={ <ManagerLogin /> } />
+          <Route path='/hr-login' element={ <HRLogin /> } />
           <Route path='/dashboard' element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path='/' element={<Homepage />} />
         </Routes>
       </Router>
     </AuthProvider>
   );
-}
+};
 
 export default App;
