@@ -1,23 +1,30 @@
 import { createContext, useState, useContext } from 'react';
+import usersData from '../data/user.json'; // Importing JSON data directly
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
 
-    const login = async (username, password) => {
-        try {
-            const response = await fetch('/users.json');
-            const data = await response.json();
-            const foundUser = data.users.find(u => u.username === username && u.password === password);
-            if (foundUser) {
-                setUser({ username: foundUser.username, role: foundUser.role });
-            } else {
-                alert('Invalid username or password');
+    const login = (username, password, navigate) => {
+        const foundUser = usersData.users.find(
+            (user) => user.username === username && user.password === password
+        );
+
+        if (foundUser) {
+            setUser({ username: foundUser.username, role: foundUser.role });
+            console.log("Login successful");
+            // Redirect based on role
+            if (foundUser.role === 'Team Lead') {
+                navigate('/teamlead-page');
+            } else if (foundUser.role === 'Manager') {
+                navigate('/manager-page');
+            } else if (foundUser.role === 'HR') {
+                navigate('/dashboard');
             }
-        } catch (error) {
-            console.error('Login error:', error);
-            alert('Login failed. Please try again later.');
+        } else {
+            console.log("Login failed: Invalid username or password");
+            setUser(null);
         }
     };
 
