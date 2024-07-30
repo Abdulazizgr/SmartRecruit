@@ -1,8 +1,0 @@
-{
-    "users": [
-      { "username": "teamlead", "password": "password123", "role": "Team Lead" },
-      { "username": "manager", "password": "password123", "role": "Manager" },
-      { "username": "hr", "password": "password123", "role": "HR" }
-    ]
-  }
-      
