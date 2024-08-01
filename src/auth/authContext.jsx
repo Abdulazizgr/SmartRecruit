@@ -14,6 +14,7 @@ export const AuthProvider = ({ children }) => {
         if (foundUser) {
             setUser({ username: foundUser.username, role: foundUser.role });
             console.log("Login successful");
+            alert('Login successful');
             // Redirect based on role
             if (foundUser.role === 'Team Lead') {
                 navigate('/teamlead-page');
@@ -24,6 +25,7 @@ export const AuthProvider = ({ children }) => {
             }
         } else {
             console.log("Login failed: Invalid username or password");
+            alert('Login failed: Invalid username or password');
             setUser(null);
         }
     };
