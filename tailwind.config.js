@@ -3,28 +3,21 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/flowbite/**/*.js"
   ],
   theme: {
     extend: {
       colors: {
-        primary: {
-          500:'#EBF4F6',
-          600: '#37B7C3',
-          700: '#088395',
-          800: '#071952'  
-        },
+        primary: '#071952',
+        secondary: '#088395',
+        accent: '#37B7C3',
+        background: '#EBF4F6',
+        
+      }
+      ,
+      backgroundImage: {
+        'custom-gradient': 'linear-gradient(to top,#46B8EC, #112248)',
       },
     },
   },
-  plugins: [
-    require('flowbite/plugin'),
-    require('daisyui'),
-  ],
-  daisyui: {
-    themes: [
-      'light'
-    ]
-    
-  },
+  plugins: [],
 }
