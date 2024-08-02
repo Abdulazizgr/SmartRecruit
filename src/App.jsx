@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/HR/dashboard';
-import Homepage from './pages/User/homePage';
+import Homepage from './pages/User/HomePage';
 import ProtectedRoute from './routes/protectedRoute';
 import { AuthProvider } from './auth/authContext';
 import TeamLeadLogin from './pages/TeamLead/teamLeadLogin';
