@@ -21,13 +21,13 @@ const ManagerPage = () => {
                     <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl">You can see posted jobs or view your history from here.</p>
                     <button
                         onClick={handleSeePostedJob}
-                        className="mr-10 inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-cyan-800 focus:ring-4 focus:ring-primary-300"
+                        className="mr-10 inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white rounded-lg bg-palette-700 hover:bg-cyan-800 focus:ring-4 focus:ring-primary-300"
                     >
                         See Posted Job
                     </button>
                     <button
                         onClick={handleSeeHistory}
-                        className="mr-10 inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white border bg-primary-700 hover:bg-cyan-800 border-gray-300 rounded-lg focus:ring-4 focus:ring-gray-100"
+                        className="mr-10 inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white border bg-palette-700 hover:bg-cyan-800 border-gray-300 rounded-lg focus:ring-4 focus:ring-gray-100"
                     >
                         See History
                     </button>
