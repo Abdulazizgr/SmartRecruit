@@ -1,41 +1,52 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import Table from '../../components/Table';
 
 const PostedJobs = () => {
     const [jobs, setJobs] = useState([]);
 
     useEffect(() => {
-        // Retrieve jobs from LocalStorage
-        const savedJobs = JSON.parse(localStorage.getItem('jobs')) || [];
-        setJobs(savedJobs);
+        const fetchJobs = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/jobs');
+                setJobs(response.data);
+            } catch (error) {
+                console.error('Error fetching jobs:', error);
+            }
+        };
+
+        fetchJobs();
     }, []);
 
-    const updateJobStatus = (index, status) => {
-        const updatedJobs = jobs.map((job, i) => {
-            if (i === index) {
-                return { ...job, status };
-            }
-            return job;
-        });
+    const updateJobStatus = async (index, status) => {
+        try {
+            const updatedJob = { ...jobs[index], status };
+            await axios.put(`http://localhost:5000/jobs/${updatedJob.id}`, updatedJob);
 
-        setJobs(updatedJobs);
-        localStorage.setItem('jobs', JSON.stringify(updatedJobs));
+            const updatedJobs = jobs.map((job, i) => (i === index ? updatedJob : job));
+            setJobs(updatedJobs);
+        } catch (error) {
+            console.error('Error updating job status:', error);
+        }
     };
 
     const handleAccept = (index) => {
-        console.log(`Job at index ${index} accepted.`);
         updateJobStatus(index, 'Accepted');
     };
 
     const handleReject = (index) => {
-        console.log(`Job at index ${index} rejected.`);
         updateJobStatus(index, 'Rejected');
     };
 
-    const handleDelete = (index) => {
-        const updatedJobs = jobs.filter((_, i) => i !== index);
-        setJobs(updatedJobs);
-        localStorage.setItem('jobs', JSON.stringify(updatedJobs));
+    const handleDelete = async (index) => {
+        try {
+            await axios.delete(`http://localhost:5000/jobs/${jobs[index].id}`);
+
+            const updatedJobs = jobs.filter((_, i) => i !== index);
+            setJobs(updatedJobs);
+        } catch (error) {
+            console.error('Error deleting job:', error);
+        }
     };
 
     return (
