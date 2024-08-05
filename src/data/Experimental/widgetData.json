@@ -1,0 +1,47 @@
+[
+    {
+      "type": "employee",
+      "title": "Employees",
+      "counter": 222,
+      "link": "See all Employees",
+      "percentage": 20,
+      "icon": "PersonOutlined",
+      "trend": "positive",
+      "color":"crimson",
+      "background":"rgba(255,0,0,0.2)"
+    },
+    {
+      "type": "department",
+      "title": "Departments",
+      "counter": 15,
+      "link": "See all Departments",
+      "percentage": 10,
+      "icon": "Business",
+      "trend": "positive",
+      "color":"crimson",
+      "background":"rgba(255,0,0,0.2)"
+    },
+    {
+      "type": "open-postion",
+      "title": "Open Positions",
+      "counter": 12,
+      "link": "See all Open Positions",
+      "percentage": -5,
+      "icon": "WorkOutline",
+      "trend": "negative",
+      "color":"green",
+      "background":"rgba(0,128,0,0.2)"
+    },
+    {
+      "type": "attendance",
+      "title": "Attendance Rate",
+      "counter": "95%",
+      "link": "See attendance details",
+      "percentage": 5,
+      "icon": "EventAvailable",
+      "trend": "positive",
+      "color":"purple",
+      "background":"rgba(128,0,128,0.2)"
+    }
+  ]
+  
