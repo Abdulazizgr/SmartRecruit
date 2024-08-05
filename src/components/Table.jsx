@@ -1,5 +1,5 @@
 // Table.jsx
-const Table = ({ data, handleAccept, handleReject }) => {
+const Table = ({ data, handleAccept, handleReject, handleDelete }) => {
     return (
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -9,8 +9,10 @@ const Table = ({ data, handleAccept, handleReject }) => {
                         <th scope="col" className="px-6 py-3">Job Title</th>
                         <th scope="col" className="px-6 py-3">Description</th>
                         <th scope="col" className="px-6 py-3">Location</th>
-                        <th scope="col" className="px-6 py-3">Deadline</th>
-                        <th scope="col" className="px-6 py-3">Requirements</th>
+                        <th scope="col" className="px-6 py-3">Department</th>
+                        <th scope="col" className="px-6 py-3">Salary</th>
+                        <th scope="col" className="px-6 py-3">Type</th>
+                        <th scope="col" className="px-6 py-3">Skills</th>
                         <th scope="col" className="px-6 py-3">Actions</th>
                     </tr>
                 </thead>
@@ -23,21 +25,37 @@ const Table = ({ data, handleAccept, handleReject }) => {
                             <td className="px-6 py-4">{job.title}</td>
                             <td className="px-6 py-4 break-words max-w-xs">{job.description}</td>
                             <td className="px-6 py-4">{job.location}</td>
-                            <td className="px-6 py-4">{job.deadline}</td>
-                            <td className="px-6 py-4 break-words max-w-xs">{job.requirements}</td>
+                            <td className="px-6 py-4">{job.department}</td>
+                            <td className="px-6 py-4">{job.salary}</td>
+                            <td className="px-6 py-4">{job.type}</td>
+                            <td className="px-6 py-4 break-words max-w-xs">{job.skills}</td>
                             <td className="px-6 py-4">
                                 <div className="flex mt-4">
+                                    {job.status ? (
+                                        <span className={`text-sm font-medium ${job.status === 'Accepted' ? 'text-green-500' : 'text-red-500'} mr-4`}>
+                                            {job.status}
+                                        </span>
+                                    ) : (
+                                        <>
+                                            <button
+                                                onClick={() => handleAccept(index)}
+                                                className="text-white bg-green-500 hover:bg-green-600 font-medium rounded-lg text-sm px-3 py-1 mr-2"
+                                            >
+                                                Accept
+                                            </button>
+                                            <button
+                                                onClick={() => handleReject(index)}
+                                                className="text-white bg-red-500 hover:bg-red-600 font-medium rounded-lg text-sm px-3 py-1 mr-2"
+                                            >
+                                                Reject
+                                            </button>
+                                        </>
+                                    )}
                                     <button
-                                        onClick={() => handleAccept(index)}
-                                        className="text-white bg-green-500 hover:bg-green-600 font-medium rounded-lg text-sm px-3 py-1 mr-4"
+                                        onClick={() => handleDelete(index)}
+                                        className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-3 py-1"
                                     >
-                                        Accept
-                                    </button>
-                                    <button
-                                        onClick={() => handleReject(index)}
-                                        className="text-white bg-red-500 hover:bg-red-600 font-medium rounded-lg text-sm px-3 py-1"
-                                    >
-                                        Reject
+                                        Delete
                                     </button>
                                 </div>
                             </td>

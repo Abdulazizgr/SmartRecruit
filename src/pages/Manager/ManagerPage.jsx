@@ -1,7 +1,15 @@
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const ManagerPage = () => {
     const navigate = useNavigate();
+    const [jobs, setJobs] = useState([]);
+    const [filter, setFilter] = useState('All');
+
+    useEffect(() => {
+        const savedJobs = JSON.parse(localStorage.getItem('jobs')) || [];
+        setJobs(savedJobs);
+    }, []);
 
     const handleSeePostedJob = () => {
         console.log('See Posted Job');
@@ -12,6 +20,8 @@ const ManagerPage = () => {
         console.log('See History');
         navigate('/see-history'); // Example navigation to a history page
     };
+
+    const filteredJobs = jobs.filter(job => filter === 'All' || job.status === filter);
 
     return (
         <section className="bg-white">
@@ -35,6 +45,52 @@ const ManagerPage = () => {
                 <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
                     <img src="src/assets/Managerpage.png" alt="Manager illustration" className="max-w-sm max-h-sm" />
                 </div>
+            </div>
+
+            {/* History Section */}
+            <div className="bg-white p-8 rounded shadow-lg w-full mx-auto mt-8">
+                <h2 className="text-2xl font-bold mb-6">History of Job Posts</h2>
+                <div className="mb-4">
+                    <label htmlFor="filter" className="mr-2">Filter by status:</label>
+                    <select
+                        id="filter"
+                        value={filter}
+                        onChange={(e) => setFilter(e.target.value)}
+                        className="p-2 border rounded"
+                    >
+                        <option value="All">All</option>
+                        <option value="Accepted">Accepted</option>
+                        <option value="Rejected">Rejected</option>
+                    </select>
+                </div>
+                {filteredJobs.length > 0 ? (
+                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" className="px-6 py-3">#</th>
+                                <th scope="col" className="px-6 py-3">Job Title</th>
+                                <th scope="col" className="px-6 py-3">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {filteredJobs.map((job, index) => (
+                                <tr key={index} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        {index + 1}
+                                    </th>
+                                    <td className="px-6 py-4">{job.title}</td>
+                                    <td className="px-6 py-4">
+                                        <span className={`text-sm font-medium ${job.status === 'Accepted' ? 'text-green-500' : 'text-red-500'}`}>
+                                            {job.status || 'Pending'}
+                                        </span>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                ) : (
+                    <p>No job history available.</p>
+                )}
             </div>
         </section>
     );
