@@ -6,6 +6,8 @@ import JobListingsSection from './JobListingsSection';
 import BenefitsSection from './BenefitsSection';
 import Footer from './Footer';
 import Navbar from './Navbar';
+import JobDetailsPage from './JobDetailsPage';
+import ApplicationForm from './ApplicationForm';
 
 const HomePage = () => {
   return (
@@ -16,6 +18,8 @@ const HomePage = () => {
       <ApplicationProcessSection />
       <JobListingsSection />
       <BenefitsSection />
+      <JobDetailsPage />
+      < ApplicationForm />
       <Footer />
     </>
   );
