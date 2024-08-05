@@ -1,36 +1,44 @@
 import { useState } from 'react';
+import axios from 'axios';
 
 const PostJob = () => {
     const [title, setTitle] = useState('');
     const [department, setDepartment] = useState('');
     const [location, setLocation] = useState('');
     const [description, setDescription] = useState('');
-    const [salary, setSalary] = useState('');
-    const [type, setType] = useState('');
+    const [responsibilities, setResponsibilities] = useState('');
+    const [requirements, setRequirements] = useState('');
     const [skills, setSkills] = useState('');
+    const [type, setType] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const newJob = { title, department, location, description, salary, type, skills };
+        const newJob = {
+            title,
+            department,
+            location,
+            description,
+            responsibilities,
+            requirements,
+            preferredSkills: skills, 
+            type,
+        };
 
-        // Retrieve existing jobs from LocalStorage
-        const jobs = JSON.parse(localStorage.getItem('jobs')) || [];
-
-        // Add new job to the list
-        jobs.push(newJob);
-
-        // Store updated list back to LocalStorage
-        localStorage.setItem('jobs', JSON.stringify(jobs));
-
-        // Reset form fields
-        setTitle('');
-        setDepartment('');
-        setLocation('');
-        setDescription('');
-        setSalary('');
-        setType('');
-        setSkills('');
+        try {
+            await axios.post('http://localhost:5000/jobs', newJob);
+            // Reset form fields
+            setTitle('');
+            setDepartment('');
+            setLocation('');
+            setDescription('');
+            setResponsibilities('');
+            setRequirements('');
+            setSkills('');
+            setType('');
+        } catch (error) {
+            console.error('Error posting job:', error);
+        }
     };
 
     return (
@@ -85,13 +93,34 @@ const PostJob = () => {
                     />
                 </div>
                 <div>
-                    <label htmlFor="salary" className="block mb-2 text-sm font-medium text-gray-900">Salary</label>
-                    <input
-                        type="text"
-                        id="salary"
-                        value={salary}
-                        onChange={(e) => setSalary(e.target.value)}
-                        placeholder="Salary"
+                    <label htmlFor="responsibilities" className="block mb-2 text-sm font-medium text-gray-900">Responsibilities</label>
+                    <textarea
+                        id="responsibilities"
+                        value={responsibilities}
+                        onChange={(e) => setResponsibilities(e.target.value)}
+                        placeholder="Responsibilities"
+                        required
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    />
+                </div>
+                <div>
+                    <label htmlFor="requirements" className="block mb-2 text-sm font-medium text-gray-900">Requirements</label>
+                    <textarea
+                        id="requirements"
+                        value={requirements}
+                        onChange={(e) => setRequirements(e.target.value)}
+                        placeholder="Requirements"
+                        required
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    />
+                </div>
+                <div>
+                    <label htmlFor="skills" className="block mb-2 text-sm font-medium text-gray-900">Preferred Skills</label>
+                    <textarea
+                        id="skills"
+                        value={skills}
+                        onChange={(e) => setSkills(e.target.value)}
+                        placeholder="Preferred Skills"
                         required
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     />
@@ -110,17 +139,6 @@ const PostJob = () => {
                         <option value="Part-time">Part-time</option>
                         <option value="Remote">Remote</option>
                     </select>
-                </div>
-                <div>
-                    <label htmlFor="skills" className="block mb-2 text-sm font-medium text-gray-900">Skills</label>
-                    <textarea
-                        id="skills"
-                        value={skills}
-                        onChange={(e) => setSkills(e.target.value)}
-                        placeholder="Skills"
-                        required
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    />
                 </div>
                 <button
                     type="submit"
