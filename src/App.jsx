@@ -11,6 +11,8 @@ import ManagerPage from './pages/Manager/ManagerPage';
 import PostJob from './pages/TeamLead/PostJob';
 // import PostedStatus from './pages/TeamLead/PostedStatus';
 import PostedJobs from './pages/Manager/PostedJobs';
+import JobDetailsPage from './pages/User/JobDetailsPage';
+import ApplicationForm from './pages/User/ApplicationForm';
 // import StatusHistory from './pages/Manager/StatusHistory';
 
 const App = () => {
@@ -26,6 +28,10 @@ const App = () => {
           <Route path='/see-posted-job' element={ <PostedJobs /> } />
           {/* <Route path='/see-history' element={ <StatusHistory /> } /> */}
           
+          
+
+          <Route path='/job-details' element={ <JobDetailsPage /> } />
+          <Route path='/application-form' element={ <ApplicationForm/> } />
 
           <Route path='/hr-login' element={ <HRLogin /> } />
           
