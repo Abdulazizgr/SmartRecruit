@@ -3,11 +3,14 @@ import emailjs from 'emailjs-com';
 
 const ApplicationForm = () => {
   const [formData, setFormData] = useState({
-    fullName: '',
+    firstName: '',
+    lastName: '',
     email: '',
     phoneNumber: '',
+    address: '',
     resume: '',
     coverLetter: '',
+    additionalDocument: '',
     jobPosition: '',
   });
 
@@ -19,7 +22,8 @@ const ApplicationForm = () => {
   };
 
   const handleFileChange = (e) => {
-    setFormData((prevState) => ({ ...prevState, resume: e.target.files[0] }));
+    const { name, files } = e.target;
+    setFormData((prevState) => ({ ...prevState, [name]: files[0] }));
   };
 
   const handleSubmit = (e) => {
@@ -31,11 +35,14 @@ const ApplicationForm = () => {
     const userID = 'd_Qav9-GzQmZYbbzo';
 
     const templateParams = {
-      fullName: formData.fullName,
+      firstName: formData.firstName,
+      lastName: formData.lastName,
       email: formData.email,
       phoneNumber: formData.phoneNumber,
-      resume: formData.resume.name, // Only sending the name of the file
+      address: formData.address,
+      resume: formData.resume.name,
       coverLetter: formData.coverLetter,
+      additionalDocument: formData.additionalDocument.name,
       jobPosition: formData.jobPosition,
     };
 
@@ -48,11 +55,14 @@ const ApplicationForm = () => {
 
         // Reset form data
         setFormData({
-          fullName: '',
+          firstName: '',
+          lastName: '',
           email: '',
           phoneNumber: '',
+          address: '',
           resume: '',
           coverLetter: '',
+          additionalDocument: '',
           jobPosition: '',
         });
       })
@@ -65,6 +75,13 @@ const ApplicationForm = () => {
 
   return (
     <section id="application-form" className="bg-[#F9FAFB] py-12">
+      <button
+        type="button"
+        className="uppercase py-2 px-4 rounded-lg bg-gray-500 border-2 border-transparent text-white text-md ml-4 hover:bg-gray-700"
+        onClick={() => (window.location.href = '/')}
+      >
+        Back to Home
+      </button>
       <div className="container mx-auto px-6">
         <h2 className="text-3xl font-bold text-center text-[#071952] mb-8">
           Application Form
@@ -74,16 +91,30 @@ const ApplicationForm = () => {
             {/* Form fields */}
             <div className="mb-6">
               <label className="block text-gray-700 text-sm font-bold mb-2">
-                Full Name
+                First Name
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 type="text"
-                name="fullName"
-                value={formData.fullName}
+                name="firstName"
+                value={formData.firstName}
                 onChange={handleChange}
                 required
-                placeholder="Enter your full name"
+                placeholder="Enter your first name"
+              />
+            </div>
+            <div className="mb-6">
+              <label className="block text-gray-700 text-sm font-bold mb-2">
+                Last Name
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                type="text"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                required
+                placeholder="Enter your last name"
               />
             </div>
             <div className="mb-6">
@@ -116,6 +147,20 @@ const ApplicationForm = () => {
             </div>
             <div className="mb-6">
               <label className="block text-gray-700 text-sm font-bold mb-2">
+                Address
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                type="text"
+                name="address"
+                value={formData.address}
+                onChange={handleChange}
+                required
+                placeholder="Enter your address"
+              />
+            </div>
+            <div className="mb-6">
+              <label className="block text-gray-700 text-sm font-bold mb-2">
                 Resume
               </label>
               <input
@@ -138,6 +183,18 @@ const ApplicationForm = () => {
                 required
                 placeholder="Enter your cover letter"
               ></textarea>
+            </div>
+            <div className="mb-6">
+              <label className="block text-gray-700 text-sm font-bold mb-2">
+                Additional Document (e.g., Certificate)
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                type="file"
+                name="additionalDocument"
+                onChange={handleFileChange}
+                required
+              />
             </div>
             <div className="mb-6">
               <label className="block text-gray-700 text-sm font-bold mb-2">

@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
             } else if (foundUser.role === 'Manager') {
                 navigate('/manager-page');
             } else if (foundUser.role === 'HR') {
-                navigate('/dashboard');
+                navigate('/dashboard_2');
             }
         } else {
             console.log("Login failed: Invalid username or password");
