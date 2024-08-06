@@ -20,13 +20,13 @@ const Navbar = () => {
           <a href="#" className="py-2 px-6 hover:text-[#37B7C3]">
             Home
           </a>
-          <a href="#" className="py-2 px-6 hover:text-[#37B7C3]">
+          <a href="#works" className="py-2 px-6 hover:text-[#37B7C3]">
             About
           </a>
-          <a href="#" className="py-2 px-6 hover:text-[#37B7C3]">
+          <a href="#job-listings" className="py-2 px-6 hover:text-[#37B7C3]">
             Open Positions
           </a>
-          <a href="#" className="py-2 px-6 hover:text-[#37B7C3]">
+          <a href="#contact" className="py-2 px-6 hover:text-[#37B7C3]">
             Contact
           </a>
         </nav>
