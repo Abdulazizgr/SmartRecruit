@@ -3,7 +3,7 @@ import HeroSection from './HeroSection';
 import AboutSection from './AboutSection';
 import ApplicationProcessSection from './ApplicationProcessSection';
 import JobListingsSection from './JobListingsSection';
-// import BenefitsSection from './BenefitsSection';
+import BenefitsSection from './BenefitsSection';
 import Footer from './Footer';
 import Navbar from './Navbar';
 
@@ -15,7 +15,7 @@ const HomePage = () => {
       <AboutSection />
       <ApplicationProcessSection />
       <JobListingsSection />
-      {/* <BenefitsSection /> */}
+      <BenefitsSection />
       <Footer />
     </>
   );
