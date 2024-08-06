@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const JobDetailsPage = () => {
   const job = {
@@ -35,12 +35,6 @@ const JobDetailsPage = () => {
       'Experience in Unix/Linux environments, including basic commands and scripting',
       'Comfortable with SCRUM and Agile development methodologies',
     ],
-  };
-
-  const scrollToApplicationForm = () => {
-    document
-      .getElementById('application-form')
-      .scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -100,12 +94,12 @@ const JobDetailsPage = () => {
               </ul>
             </div>
             <div className="text-center">
-              <button
-                onClick={scrollToApplicationForm}
+              <Link
+                to={`/application-form`}
                 className="uppercase py-2 px-4 rounded-lg bg-[#071952] border-2 border-transparent text-[#EBF4F6] text-md mr-4 hover:bg-[#088395] scroll-smooth"
               >
                 Apply
-              </button>
+              </Link>
             </div>
           </div>
         </div>
