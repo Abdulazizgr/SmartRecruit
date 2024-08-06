@@ -1,5 +1,4 @@
 // import { KeyboardArrowUp, PersonOutlined } from "@mui/icons-material"
-import './widget.scss';
 import widgetData from '../../data/Experimental/widgetData.json';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -30,23 +29,23 @@ const Widgets = ({ type }) => {
   return (
 
 
-    <div className="widget">
-      <div className="left">
-        <span className="title">{data.title}</span>
-        <span className="counter">{data.counter}</span>
-        <span className="link">{data.link}</span>
+    <div className="flex flex-1 justify-between shadow-[2px_4px_10px_1px_rgba(201,201,201,0.4)] p-2.5 rounded-[10px]">
+      <div className="flex flex-col justify-between">
+        <span className="font-[bold] text-sm text-[#a0a00a]">{data.title}</span>
+        <span className="text-[28px] font-light">{data.counter}</span>
+        <span className="w-max text-xs border-b-[gray] border-b border-solid">{data.link}</span>
       </div>
-      <div className="right">
-        <div className={`percentage ${data.trend}`}>
+      <div className="flex flex-col justify-between">
+        <div className={`flex items-center text-sm ${data.trend}`}>
           {data.trend === 'positive' ? (
-            <KeyboardArrowUpIcon />
+            <KeyboardArrowUpIcon className='text-[green]'/>
           ) : (
-            <KeyboardArrowDownIcon />
+            <KeyboardArrowDownIcon className=' text-[red]'/>
           )}
           {`${data.percentage}%`}
         </div>
         <IconComponent 
-          className="icon" 
+          className="text-[25px] bg-[rgba(128,0,128,0.3)] self-end p-[5px] rounded-[5px]" 
           style={{ color: data.color, backgroundColor: data.background }}
         />
       </div>
