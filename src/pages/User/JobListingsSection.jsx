@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const jobs = [
   {
@@ -383,12 +384,12 @@ const OpenPositions = () => {
                     <span className="text-sm font-medium text-[#071952]">
                       {job.type}
                     </span>
-                    <a
-                      href=""
+                    <Link
+                      to={`/job-details`}
                       className="text-[#37B7C3] font-medium hover:text-[#088395] transition duration-300"
                     >
                       Show Details
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

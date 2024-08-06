@@ -10,9 +10,10 @@ const Table = ({ data, handleAccept, handleReject, handleDelete }) => {
                         <th scope="col" className="px-6 py-3">Description</th>
                         <th scope="col" className="px-6 py-3">Location</th>
                         <th scope="col" className="px-6 py-3">Department</th>
-                        <th scope="col" className="px-6 py-3">Salary</th>
-                        <th scope="col" className="px-6 py-3">Type</th>
+                        <th scope="col" className="px-6 py-3">Responsibilities</th>
+                        <th scope="col" className="px-6 py-3">Requirements</th>
                         <th scope="col" className="px-6 py-3">Skills</th>
+                        <th scope="col" className="px-6 py-3">Type</th>
                         <th scope="col" className="px-6 py-3">Actions</th>
                     </tr>
                 </thead>
@@ -26,9 +27,10 @@ const Table = ({ data, handleAccept, handleReject, handleDelete }) => {
                             <td className="px-6 py-4 break-words max-w-xs">{job.description}</td>
                             <td className="px-6 py-4">{job.location}</td>
                             <td className="px-6 py-4">{job.department}</td>
-                            <td className="px-6 py-4">{job.salary}</td>
+                            <td className="px-6 py-4 break-words max-w-xs">{job.responsibilities}</td>
+                            <td className="px-6 py-4 break-words max-w-xs">{job.requirements}</td>
+                            <td className="px-6 py-4 break-words max-w-xs">{job.preferredSkills}</td>
                             <td className="px-6 py-4">{job.type}</td>
-                            <td className="px-6 py-4 break-words max-w-xs">{job.skills}</td>
                             <td className="px-6 py-4">
                                 <div className="flex mt-4">
                                     {job.status ? (

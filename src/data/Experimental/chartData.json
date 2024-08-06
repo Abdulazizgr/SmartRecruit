@@ -1,0 +1,28 @@
+{
+    "newHires": {
+        "heading":"Hiring Progress",
+      "value": 15,
+      "percentage": 68,
+      "title": "New Hires this Month",
+      "description": "Includes all new hires for various departments."
+    },
+    "totalEmployees": {
+      "value": 240,
+      "increasePercentage": 18,
+      "title": "Total Employees",
+      "description": "An increase of 18% from the previous month."
+    },
+    "trainingCompletion": {
+      "value": 25,
+      "percentage": 75,
+      "title": "Training Completion",
+      "description": "75% of employees have completed the mandatory training."
+    },
+    "projectCompletion": {
+      "value": 12,
+      "percentage": 80,
+      "title": "Project Completion",
+      "description": "80% of ongoing projects are on track for completion."
+    }
+  }
+  

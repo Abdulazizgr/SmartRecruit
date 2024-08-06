@@ -18,8 +18,7 @@ const HomePage = () => {
       <ApplicationProcessSection />
       <JobListingsSection />
       <BenefitsSection />
-      <JobDetailsPage />
-      < ApplicationForm />
+      
       <Footer />
     </>
   );

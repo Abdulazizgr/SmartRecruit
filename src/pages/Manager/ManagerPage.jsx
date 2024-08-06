@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const ManagerPage = () => {
     const navigate = useNavigate();
@@ -7,8 +8,16 @@ const ManagerPage = () => {
     const [filter, setFilter] = useState('All');
 
     useEffect(() => {
-        const savedJobs = JSON.parse(localStorage.getItem('jobs')) || [];
-        setJobs(savedJobs);
+        const fetchJobs = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/jobs');
+                setJobs(response.data);
+            } catch (error) {
+                console.error('Error fetching jobs:', error);
+            }
+        };
+
+        fetchJobs();
     }, []);
 
     const handleSeePostedJob = () => {
@@ -35,12 +44,12 @@ const ManagerPage = () => {
                     >
                         See Posted Job
                     </button>
-                    <button
+                    {/* <button
                         onClick={handleSeeHistory}
                         className="mr-10 inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white border bg-palette-700 hover:bg-cyan-800 border-gray-300 rounded-lg focus:ring-4 focus:ring-gray-100"
                     >
                         See History
-                    </button>
+                    </button> */}
                 </div>
                 <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
                     <img src="src/assets/Managerpage.png" alt="Manager illustration" className="max-w-sm max-h-sm" />
@@ -69,6 +78,13 @@ const ManagerPage = () => {
                             <tr>
                                 <th scope="col" className="px-6 py-3">#</th>
                                 <th scope="col" className="px-6 py-3">Job Title</th>
+                                <th scope="col" className="px-6 py-3">Description</th>
+                                <th scope="col" className="px-6 py-3">Location</th>
+                                <th scope="col" className="px-6 py-3">Department</th>
+                                <th scope="col" className="px-6 py-3">Responsibilities</th>
+                                <th scope="col" className="px-6 py-3">Requirements</th>
+                                <th scope="col" className="px-6 py-3">Skills</th>
+                                <th scope="col" className="px-6 py-3">Type</th>
                                 <th scope="col" className="px-6 py-3">Status</th>
                             </tr>
                         </thead>
@@ -79,6 +95,13 @@ const ManagerPage = () => {
                                         {index + 1}
                                     </th>
                                     <td className="px-6 py-4">{job.title}</td>
+                                    <td className="px-6 py-4 break-words max-w-xs">{job.description}</td>
+                                    <td className="px-6 py-4">{job.location}</td>
+                                    <td className="px-6 py-4">{job.department}</td>
+                                    <td className="px-6 py-4 break-words max-w-xs">{job.responsibilities}</td>
+                                    <td className="px-6 py-4 break-words max-w-xs">{job.requirements}</td>
+                                    <td className="px-6 py-4 break-words max-w-xs">{job.preferredSkills}</td>
+                                    <td className="px-6 py-4">{job.type}</td>
                                     <td className="px-6 py-4">
                                         <span className={`text-sm font-medium ${job.status === 'Accepted' ? 'text-green-500' : 'text-red-500'}`}>
                                             {job.status || 'Pending'}

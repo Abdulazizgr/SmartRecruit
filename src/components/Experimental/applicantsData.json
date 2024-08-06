@@ -1,0 +1,54 @@
+{
+  "applicants": [
+    {
+      "id": 1,
+      "fullName": "John Doe",
+      "email": "john.doe@example.com",
+      "phoneNumber": "123-456-7890",
+      "coverLetter": "I am very interested in the position.",
+      "jobPosition": "Software Engineer",
+      "dateApplied": "2024-08-05",
+      "status": "Pending"
+    },
+    {
+      "id": 2,
+      "fullName": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "phoneNumber": "987-654-3210",
+      "coverLetter": "I have experience in this field.",
+      "jobPosition": "Product Manager",
+      "dateApplied": "2024-08-04",
+      "status": "Accepted"
+    },
+    {
+      "id": 3,
+      "fullName": "Alice Johnson",
+      "email": "alice.johnson@example.com",
+      "phoneNumber": "555-123-4567",
+      "coverLetter": "I am passionate about this role.",
+      "jobPosition": "UX Designer",
+      "dateApplied": "2024-08-03",
+      "status": "Rejected"
+    },
+    {
+      "id": 4,
+      "fullName": "Bob Brown",
+      "email": "bob.brown@example.com",
+      "phoneNumber": "444-987-6543",
+      "coverLetter": "I have the skills you are looking for.",
+      "jobPosition": "Data Scientist",
+      "dateApplied": "2024-08-02",
+      "status": "Pending"
+    },
+    {
+      "id": 5,
+      "fullName": "Charlie White",
+      "email": "charlie.white@example.com",
+      "phoneNumber": "333-456-7890",
+      "coverLetter": "I am excited about this opportunity.",
+      "jobPosition": "DevOps Engineer",
+      "dateApplied": "2024-08-01",
+      "status": "Accepted"
+    }
+  ]
+}

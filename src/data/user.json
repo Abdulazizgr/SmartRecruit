@@ -1,8 +1,8 @@
 {
     "users": [
-      { "username": "teamlead", "password": "password123", "role": "Team Lead" },
-      { "username": "manager", "password": "password123", "role": "Manager" },
-      { "username": "hr", "password": "password123", "role": "HR" }
+      { "username": "teamlead", "password": "123", "role": "Team Lead" },
+      { "username": "manager", "password": "123", "role": "Manager" },
+      { "username": "hr", "password": "123", "role": "HR" }
     ]
   }
       
