@@ -11,7 +11,11 @@ import ManagerPage from './pages/Manager/ManagerPage';
 import PostJob from './pages/TeamLead/PostJob';
 // import PostedStatus from './pages/TeamLead/PostedStatus';
 import PostedJobs from './pages/Manager/PostedJobs';
-import StatusHistory from './pages/Manager/StatusHistory';
+import JobDetailsPage from './pages/User/JobDetailsPage';
+import ApplicationForm from './pages/User/ApplicationForm';
+// import StatusHistory from './pages/Manager/StatusHistory';
+
+
 // Jaefer Experimental
 import Dashboard2 from './pages/experimental/DashBoard/Dashboard2';
 import Login from './pages/experimental/Login/Login';
@@ -24,42 +28,25 @@ const App = () => {
     <AuthProvider>
       <Router>
         <Routes>
-          <Route path='/teamlead-login' element={ <TeamLeadLogin /> } />
+        <Route path='/teamlead-login' element={ <TeamLeadLogin /> } />
           <Route path='/post-job' element={ <PostJob /> } />
           {/* <Route path='/posted-status' element={ <PostedStatus /> } /> */}
 
           <Route path='/manager-login' element={ <ManagerLogin /> } />
           <Route path='/see-posted-job' element={ <PostedJobs /> } />
-          <Route path='/see-history' element={ <StatusHistory /> } />
+          {/* <Route path='/see-history' element={ <StatusHistory /> } /> */}
+          
           
 
-          <Route path="/hr-login" element={<HRLogin />} />
+          <Route path='/job-details' element={ <JobDetailsPage /> } />
+          <Route path='/application-form' element={ <ApplicationForm/> } />
 
-          <Route
-            path="/dashboard"
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/teamlead-page"
-            element={
-              <ProtectedRoute>
-                <TeamLeadPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/manager-page"
-            element={
-              <ProtectedRoute>
-                <ManagerPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route path="/" element={<Homepage />} />
+          <Route path='/hr-login' element={ <HRLogin /> } />
+          
+          <Route path='/dashboard' element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+          <Route path='/teamlead-page' element={<ProtectedRoute><TeamLeadPage /></ProtectedRoute>} />
+          <Route path='/manager-page' element={<ProtectedRoute><ManagerPage /></ProtectedRoute>} />
+          <Route path='/' element={<Homepage />} />
 
           {/* Jaefer Experimental version */}
           <Route path="/dashboard_2" element={<Dashboard2 />} />
