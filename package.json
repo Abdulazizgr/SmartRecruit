@@ -10,9 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
     "@heroicons/react": "^2.1.5",
     "axios": "^1.7.3",
     "emailjs-com": "^3.2.0",
+    "@mui/icons-material": "^5.16.6",
+    "@mui/material": "^5.16.6",
+>>>>>>> 0a92e0154ae449c4bbc8b6bb4355b03d85e357dc
     "flowbite": "^2.4.1",
     "flowbite-react": "^0.10.1",
     "react": "^18.3.1",
@@ -30,6 +35,7 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
     "postcss": "^8.4.40",
+    "sass": "^1.77.8",
     "tailwindcss": "^3.4.7",
     "vite": "^5.3.4"
   }
