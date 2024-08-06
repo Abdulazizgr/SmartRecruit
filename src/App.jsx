@@ -9,9 +9,11 @@ import HRLogin from './pages/HR/HRLogin';
 import TeamLeadPage from './pages/TeamLead/TeamLeadPage';
 import ManagerPage from './pages/Manager/ManagerPage';
 import PostJob from './pages/TeamLead/PostJob';
-import PostedStatus from './pages/TeamLead/PostedStatus';
+// import PostedStatus from './pages/TeamLead/PostedStatus';
 import PostedJobs from './pages/Manager/PostedJobs';
-import StatusHistory from './pages/Manager/StatusHistory';
+import JobDetailsPage from './pages/User/JobDetailsPage';
+import ApplicationForm from './pages/User/ApplicationForm';
+// import StatusHistory from './pages/Manager/StatusHistory';
 
 const App = () => {
   return (
@@ -20,12 +22,16 @@ const App = () => {
         <Routes>
           <Route path='/teamlead-login' element={ <TeamLeadLogin /> } />
           <Route path='/post-job' element={ <PostJob /> } />
-          <Route path='/posted-status' element={ <PostedStatus /> } />
+          {/* <Route path='/posted-status' element={ <PostedStatus /> } /> */}
 
           <Route path='/manager-login' element={ <ManagerLogin /> } />
           <Route path='/see-posted-job' element={ <PostedJobs /> } />
-          <Route path='/see-history' element={ <StatusHistory /> } />
+          {/* <Route path='/see-history' element={ <StatusHistory /> } /> */}
           
+          
+
+          <Route path='/job-details' element={ <JobDetailsPage /> } />
+          <Route path='/application-form' element={ <ApplicationForm/> } />
 
           <Route path='/hr-login' element={ <HRLogin /> } />
           

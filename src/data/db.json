@@ -1,0 +1,39 @@
+{
+  "jobs": [
+    {
+      "id": "66e9",
+      "title": "UI/UX",
+      "department": "SAAS",
+      "location": "Remote, Addis Ababa",
+      "description": "vboq][pomtnlmrtnrtmnprmtnopp]wqojwkjvkjbsfklqwgvboq][pomtnlmrtnrtmnprmtnopp]wqojwkjvkjbsfklqwgvboq][pomtnlmrtnrtmnprmtnopp]wqojwkjvkjbsfklqwgvboq][pomtnlmrtnrtmnprmtnopp]wqojwkjvkjbsfklqwg",
+      "responsibilities": "vboq][pomtnlmrtnrtmnprmtnopp]wqojwkjvkjbsfklqwg",
+      "requirements": "vboq][pomtnlmrtnrtmnprmtnopp]wqojwkjvkjbsfklqwgvboq][pomtnlmrtnrtmnprmtnopp]wqojwkjvkjbsfklqwgvboq][pomtnlmrtnrtmnprmtnopp]wqojwkjvkjbsfklqwgvboq][pomtnlmrtnrtmnprmtnopp]wqojwkjvkjbsfklqwg",
+      "preferredSkills": "JS",
+      "type": "Remote",
+      "status": "Rejected"
+    },
+    {
+      "id": "f17c",
+      "title": " Data Analyst",
+      "department": "SAAS",
+      "location": "Addis Ababa",
+      "description": "We are in need of a Data Analyst to interpret data, analyze results using statistical techniques, and provide ongoing reports to support our business decisions.\n",
+      "responsibilities": "Proven experience as a Data Analyst or similar role\nStrong knowledge of SQL and Excel\nExperience with data visualization tools (e.g., Tableau, Power BI)\nAnalytical mind and problem-solving aptitude\n",
+      "requirements": "Proven experience as a Data Analyst or similar role\nStrong knowledge of SQL and Excel\nExperience with data visualization tools (e.g., Tableau, Power BI)\nAnalytical mind and problem-solving aptitude\n",
+      "preferredSkills": "Version Control",
+      "type": "Full-time",
+      "status": "Accepted"
+    },
+    {
+      "id": "0eb8",
+      "title": "Marketing Specialist",
+      "department": "Marketing",
+      "location": "Addis Ababa",
+      "description": "Join our marketing team as a Marketing Specialist to develop and execute effective marketing strategies, increase brand awareness, and drive customer engagement.",
+      "responsibilities": "Create and implement marketing campaigns and strategies\nAnalyze market trends and customer behavior to identify opportunities\nManage social media accounts and digital marketing efforts\nCollaborate with the sales team to support promotional activities",
+      "requirements": "Proven experience as a Marketing Specialist or similar role\nStrong understanding of digital marketing tools and techniques\nExcellent written and verbal communication skills\nAbility to analyze data and generate actionable insights",
+      "preferredSkills": "Experience with SEO and SEM",
+      "type": "Part-time"
+    }
+  ]
+}

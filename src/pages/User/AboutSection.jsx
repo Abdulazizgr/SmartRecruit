@@ -1,10 +1,17 @@
 import React from 'react';
-import { CheckCircleIcon, StarIcon, LightBulbIcon, UsersIcon } from '@heroicons/react/24/outline';
+import {
+  CheckCircleIcon,
+  StarIcon,
+  LightBulbIcon,
+  UsersIcon,
+} from '@heroicons/react/24/outline';
 
 const AboutSection = () => {
   return (
-    <section className="text-gray-700 body-font">
-      <div className="flex justify-center mt-10 text-4xl font-regular">Why Choose Us?</div>
+    <section className=" text-gray-700 body-font pt-8">
+      <div className="flex justify-center mt-10 text-4xl font-regular">
+        Why Choose Us?
+      </div>
       <div className="container px-5 py-12 mx-auto">
         <div className="flex flex-wrap text-center justify-center">
           <div className="p-4 md:w-1/4 sm:w-1/2">
