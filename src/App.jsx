@@ -38,7 +38,7 @@ const App = () => {
           
           
 
-          <Route path='/job-details' element={ <JobDetailsPage /> } />
+          <Route path='/job-details/:id' element={ <JobDetailsPage /> } />
           <Route path='/application-form' element={ <ApplicationForm/> } />
 
           <Route path='/hr-login' element={ <HRLogin /> } />
@@ -47,6 +47,7 @@ const App = () => {
           <Route path='/teamlead-page' element={<ProtectedRoute><TeamLeadPage /></ProtectedRoute>} />
           <Route path='/manager-page' element={<ProtectedRoute><ManagerPage /></ProtectedRoute>} />
           <Route path='/' element={<Homepage />} />
+
 
           {/* Jaefer Experimental version */}
           <Route path="/dashboard_2" element={<Dashboard2 />} />
