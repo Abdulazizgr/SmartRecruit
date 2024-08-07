@@ -16,7 +16,7 @@ export default {
         },
         primary: '#071952',
         secondary: '#088395',
-        accent: '#37B7C3',
+        accent: '#00b7eb',
         background: '#EBF4F6',
       },
     },
