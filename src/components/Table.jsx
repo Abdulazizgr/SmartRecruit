@@ -1,7 +1,6 @@
 import React from 'react';
 
-const Table = ({ data = [], handleAccept, handleReject, handleDelete }) => {
-   
+const Table = ({ data = [], handleAccept, handleReject, handleDelete, handlePost }) => {
     return (
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -16,6 +15,7 @@ const Table = ({ data = [], handleAccept, handleReject, handleDelete }) => {
                         <th scope="col" className="px-6 py-3">Requirements</th>
                         <th scope="col" className="px-6 py-3">Skills</th>
                         <th scope="col" className="px-6 py-3">Type</th>
+                        <th scope="col" className="px-6 py-3">Status</th>
                         <th scope="col" className="px-6 py-3">Actions</th>
                     </tr>
                 </thead>
@@ -35,38 +35,43 @@ const Table = ({ data = [], handleAccept, handleReject, handleDelete }) => {
                                 <td className="px-6 py-4 break-words max-w-xs">{job.preferredSkills}</td>
                                 <td className="px-6 py-4">{job.type}</td>
                                 <td className="px-6 py-4">
+                                    <span className={job.status === 'Accepted' ? 'text-green-500' : 'text-red-500'}>
+                                        {job.status}
+                                    </span>
+                                </td>
+                                <td className="px-6 py-4">
                                     <div className="flex mt-4">
-                                        {job.status ? (
-                                            <span className={`text-sm font-medium ${job.status === 'Accepted' ? 'text-green-500' : 'text-red-500'} mr-4`}>
-                                                {job.status}
-                                            </span>
-                                        ) : (
+                                        {handlePost && (
+                                            <button
+                                                onClick={() => handlePost(job)}
+                                                className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-3 py-1 mr-2"
+                                            >
+                                                Post
+                                            </button>
+                                        )}
+                                        {handleAccept && handleReject && (
                                             <>
-                                                {handleAccept && (
-                                                    <button
-                                                        onClick={() => handleAccept(index)}
-                                                        className="text-white bg-green-500 hover:bg-green-600 font-medium rounded-lg text-sm px-3 py-1 mr-2"
-                                                    >
-                                                        Accept
-                                                    </button>
-                                                )}
-                                                {handleReject && (
-                                                    <button
-                                                        onClick={() => handleReject(index)}
-                                                        className="text-white bg-red-500 hover:bg-red-600 font-medium rounded-lg text-sm px-3 py-1 mr-2"
-                                                    >
-                                                        Reject
-                                                    </button>
-                                                )}
-                                                {handleDelete && (
-                                                    <button
-                                                        onClick={() => handleDelete(job.id)}
-                                                        className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-3 py-1 ml-2"
-                                                    >
-                                                        Delete
-                                                    </button>
-                                                )}
+                                                <button
+                                                    onClick={() => handleAccept(job.id)}
+                                                    className="text-white bg-green-500 hover:bg-green-600 font-medium rounded-lg text-sm px-3 py-1 mr-2"
+                                                >
+                                                    Accept
+                                                </button>
+                                                <button
+                                                    onClick={() => handleReject(job.id)}
+                                                    className="text-white bg-red-500 hover:bg-red-600 font-medium rounded-lg text-sm px-3 py-1 mr-2"
+                                                >
+                                                    Reject
+                                                </button>
                                             </>
+                                        )}
+                                        {handleDelete && (
+                                            <button
+                                                onClick={() => handleDelete(job.id)}
+                                                className="text-white bg-gray-500 hover:bg-gray-600 font-medium rounded-lg text-sm px-3 py-1"
+                                            >
+                                                Delete
+                                            </button>
                                         )}
                                     </div>
                                 </td>
@@ -74,7 +79,7 @@ const Table = ({ data = [], handleAccept, handleReject, handleDelete }) => {
                         ))
                     ) : (
                         <tr>
-                            <td colSpan="10" className="px-6 py-4 text-center">No data available</td>
+                            <td colSpan="12" className="text-center py-4">No data available</td>
                         </tr>
                     )}
                 </tbody>
