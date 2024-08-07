@@ -15,7 +15,7 @@ import {
   KeyboardDoubleArrowRight as MenuIcon,
 } from '@mui/icons-material';
 
-const Sidebar = () => {
+const Sidebar = ({ setSelectedMenu }) => {
   const [isOpen, setIsOpen] = useState(true);
 
   const toggleSidebar = () => {
@@ -23,74 +23,59 @@ const Sidebar = () => {
   };
 
   return (
-    <div className={` min-h-screen bg-white border-r border-gray-300 transition-all duration-300 ${isOpen ? 'flex-1 w-64' : 'w-25'}`}>
+    <div className={`min-h-screen bg-white border-r border-gray-300 transition-all duration-300 ${isOpen ? 'flex-1 w-64' : 'w-25'}`}>
       {/* TOP */}
-      <div className="h-12 flex items-center justify-between p-2">
-      <img
-              src="../../../public/assets/IElogo.png"
-              alt='profile-picture'
-              className='w-[30px] h-[30px] bg-transparent rounded-sm'
-            />
-        {isOpen && <span className="text-2xl font-bold text-accent">HR-Admin</span>}
-        <MenuIcon 
-          onClick={toggleSidebar} 
-          className={`cursor-pointer text-accent transition-transform duration-300 ${isOpen ? '' : 'rotate-180'}`} 
-        />
+      <div className='flex items-center justify-between p-4'>
+        <span className='text-xl font-bold text-primary'>{isOpen && 'Sidebar'}</span>
+        <MenuIcon className='cursor-pointer' onClick={toggleSidebar} />
       </div>
-      <hr className='border-gray-300' />
-      {/* CENTER */}
-      <div className={` overflow-y-auto h-[calc(100vh-50px)] ${isOpen ? 'pl-4' : 'pl-2'}`}>
-        <ul className='m-0 p-0 '>
-          <p className={`text-xs font-bold text-gray-500 ${isOpen ? 'mt-4 mb-2.5' : 'mt-4 mb-1'}`}>Main</p>
-          <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100 '>
+      {/* MIDDLE */}
+      <div className='flex flex-col p-4'>
+        <ul className='space-y-2'>
+          <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100' onClick={() => setSelectedMenu('dashboard')}>
             <DashboardIcon className='text-lg text-accent' />
             {isOpen && <span className='text-sm font-semibold text-primary ml-2.5'>Dashboard</span>}
           </li>
-          <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100'>
+          <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100' onClick={() => setSelectedMenu('accessibility')}>
             <SettingsAccessibilityIcon className='text-lg text-accent' />
-            {isOpen &&  <span className='text-sm font-semibold text-primary ml-2.5'>Attendance</span>}
+            {isOpen && <span className='text-sm font-semibold text-primary ml-2.5'>Accessibility</span>}
           </li>
-          <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100'>
-            <CalendarTodayIcon className='text-lg text-accent' />
-            {isOpen &&   <span className='text-sm font-semibold text-primary ml-2.5'>Calendar</span>}
-          </li>
-          <p className={`text-xs font-bold text-gray-500 ${isOpen ? 'mt-4 mb-2.5' : 'mt-4 mb-1'} `} >Control</p>
-          <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100'>
+          <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100' onClick={() => setSelectedMenu('department')}>
             <DepartmentIcon className='text-lg text-accent' />
-            {isOpen &&    <span className='text-sm font-semibold text-primary ml-2.5'>Department</span>}
+            {isOpen && <span className='text-sm font-semibold text-primary ml-2.5'>Department</span>}
           </li>
-          <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100'>
+          <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100' onClick={() => setSelectedMenu('employee')}>
             <EmployeeIcon className='text-lg text-accent' />
-            {isOpen &&   <span className='text-sm font-semibold text-primary ml-2.5'>Employee</span> }
+            {isOpen && <span className='text-sm font-semibold text-primary ml-2.5'>Employee</span>}
           </li>
-          <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100'>
+          <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100' onClick={() => setSelectedMenu('applicants')}>
             <ApplicantsIcon className='text-lg text-accent' />
-            {isOpen &&    <span className='text-sm font-semibold text-primary ml-2.5'>Applicants</span>}
+            {isOpen && <span className='text-sm font-semibold text-primary ml-2.5'>Applicants</span>}
           </li>
-          <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100'>
+          <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100' onClick={() => setSelectedMenu('jobPostings')}>
             <JobPostingIcon className='text-lg text-accent' />
-            {isOpen &&  <span className='text-sm font-semibold text-primary ml-2.5'>Job Posting</span>}
+            {isOpen && <span className='text-sm font-semibold text-primary ml-2.5'>Job Posting</span>}
           </li>
-          <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100'>
+          <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100' onClick={() => setSelectedMenu('award')}>
             <EmojiEvents className='text-lg text-accent' />
-            {isOpen &&  <span className='text-sm font-semibold text-primary ml-2.5'>Award</span>}
+            {isOpen && <span className='text-sm font-semibold text-primary ml-2.5'>Award</span>}
           </li>
-          <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100'>
+          <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100' onClick={() => setSelectedMenu('notification')}>
             <NotificationIcon className='text-lg text-accent' />
-            {isOpen &&  <span className='text-sm font-semibold text-primary ml-2.5'>Notification</span>}
+            {isOpen && <span className='text-sm font-semibold text-primary ml-2.5'>Notification</span>}
           </li>
           <p className={`text-xs font-bold text-gray-500 ${isOpen ? 'mt-4 mb-2.5' : 'mt-4 mb-1'}`}>Account</p>
-          <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100'>
+          <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100' onClick={() => setSelectedMenu('settings')}>
             <SettingsIcon className='text-lg text-accent' />
-            {isOpen &&    <span className='text-sm font-semibold text-primary ml-2.5'>Settings</span>}
+            {isOpen && <span className='text-sm font-semibold text-primary ml-2.5'>Settings</span>}
           </li>
-          <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100'>
+          <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100' onClick={() => setSelectedMenu('profile')}>
             <ProfileIcon className='text-lg text-accent' />
-            {isOpen &&     <span className='text-sm font-semibold text-primary ml-2.5'>Profile</span>}
+            {isOpen && <span className='text-sm font-semibold text-primary ml-2.5'>Profile</span>}
           </li>
-          <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100'>
+          <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100' onClick={() => setSelectedMenu('logout')}>
             <LogoutIcon className='text-lg text-accent' />
-            {isOpen &&  <span className='text-sm font-semibold text-primary ml-2.5'>Logout</span>}
+            {isOpen && <span className='text-sm font-semibold text-primary ml-2.5'>Logout</span>}
           </li>
         </ul>
       </div>
@@ -99,5 +84,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-
-
