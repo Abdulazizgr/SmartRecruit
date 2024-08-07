@@ -1,288 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const jobs = [
-  {
-    title: 'Software Engineer',
-    department: 'engineering',
-    location: 'New York, NY',
-    description:
-      'Join our team as a Software Engineer and work on cutting-edge technologies to create innovative solutions.',
-    company: 'TechGiant',
-    salary: '$90K - $130K per year',
-    type: 'Full Time',
-    skills: ['JavaScript', 'React', 'Node.js'],
-  },
-  {
-    title: 'Digital Marketing Manager',
-    department: 'marketing',
-    location: 'San Francisco, CA',
-    description:
-      'Lead our marketing efforts to drive growth and increase brand awareness across digital channels.',
-    company: 'MarketMasters',
-    salary: '$70K - $100K per year',
-    type: 'Full Time',
-    skills: ['SEO', 'Content Marketing', 'Social Media'],
-  },
-  {
-    title: 'Sales Director',
-    department: 'sales',
-    location: 'Los Angeles, CA',
-    description:
-      'Oversee our sales operations and drive revenue growth through strategic planning and client management.',
-    company: 'SalesPro',
-    salary: '$80K - $120K per year',
-    type: 'Full Time',
-    skills: ['Sales Strategy', 'Client Relations', 'Negotiation'],
-  },
-  {
-    title: 'Software Engineer',
-    department: 'engineering',
-    location: 'New York, NY',
-    description:
-      'Join our team as a Software Engineer and work on cutting-edge technologies to create innovative solutions.',
-    company: 'TechGiant',
-    salary: '$90K - $130K per year',
-    type: 'Full Time',
-    skills: ['JavaScript', 'React', 'Node.js'],
-  },
-  {
-    title: 'Digital Marketing Manager',
-    department: 'marketing',
-    location: 'San Francisco, CA',
-    description:
-      'Lead our marketing efforts to drive growth and increase brand awareness across digital channels.',
-    company: 'MarketMasters',
-    salary: '$70K - $100K per year',
-    type: 'Full Time',
-    skills: ['SEO', 'Content Marketing', 'Social Media'],
-  },
-  {
-    title: 'Sales Director',
-    department: 'sales',
-    location: 'Los Angeles, CA',
-    description:
-      'Oversee our sales operations and drive revenue growth through strategic planning and client management.',
-    company: 'SalesPro',
-    salary: '$80K - $120K per year',
-    type: 'Full Time',
-    skills: ['Sales Strategy', 'Client Relations', 'Negotiation'],
-  },
-  {
-    title: 'Software Engineer',
-    department: 'engineering',
-    location: 'New York, NY',
-    description:
-      'Join our team as a Software Engineer and work on cutting-edge technologies to create innovative solutions.',
-    company: 'TechGiant',
-    salary: '$90K - $130K per year',
-    type: 'Full Time',
-    skills: ['JavaScript', 'React', 'Node.js'],
-  },
-  {
-    title: 'Digital Marketing Manager',
-    department: 'marketing',
-    location: 'San Francisco, CA',
-    description:
-      'Lead our marketing efforts to drive growth and increase brand awareness across digital channels.',
-    company: 'MarketMasters',
-    salary: '$70K - $100K per year',
-    type: 'Full Time',
-    skills: ['SEO', 'Content Marketing', 'Social Media'],
-  },
-  {
-    title: 'Sales Director',
-    department: 'sales',
-    location: 'Los Angeles, CA',
-    description:
-      'Oversee our sales operations and drive revenue growth through strategic planning and client management.',
-    company: 'SalesPro',
-    salary: '$80K - $120K per year',
-    type: 'Full Time',
-    skills: ['Sales Strategy', 'Client Relations', 'Negotiation'],
-  },
-  {
-    title: 'Software Engineer',
-    department: 'engineering',
-    location: 'New York, NY',
-    description:
-      'Join our team as a Software Engineer and work on cutting-edge technologies to create innovative solutions.',
-    company: 'TechGiant',
-    salary: '$90K - $130K per year',
-    type: 'Full Time',
-    skills: ['JavaScript', 'React', 'Node.js'],
-  },
-  {
-    title: 'Digital Marketing Manager',
-    department: 'marketing',
-    location: 'San Francisco, CA',
-    description:
-      'Lead our marketing efforts to drive growth and increase brand awareness across digital channels.',
-    company: 'MarketMasters',
-    salary: '$70K - $100K per year',
-    type: 'Full Time',
-    skills: ['SEO', 'Content Marketing', 'Social Media'],
-  },
-  {
-    title: 'Sales Director',
-    department: 'sales',
-    location: 'Los Angeles, CA',
-    description:
-      'Oversee our sales operations and drive revenue growth through strategic planning and client management.',
-    company: 'SalesPro',
-    salary: '$80K - $120K per year',
-    type: 'Full Time',
-    skills: ['Sales Strategy', 'Client Relations', 'Negotiation'],
-  },
-  {
-    title: 'Software Engineer',
-    department: 'engineering',
-    location: 'New York, NY',
-    description:
-      'Join our team as a Software Engineer and work on cutting-edge technologies to create innovative solutions.',
-    company: 'TechGiant',
-    salary: '$90K - $130K per year',
-    type: 'Full Time',
-    skills: ['JavaScript', 'React', 'Node.js'],
-  },
-  {
-    title: 'Digital Marketing Manager',
-    department: 'marketing',
-    location: 'San Francisco, CA',
-    description:
-      'Lead our marketing efforts to drive growth and increase brand awareness across digital channels.',
-    company: 'MarketMasters',
-    salary: '$70K - $100K per year',
-    type: 'Full Time',
-    skills: ['SEO', 'Content Marketing', 'Social Media'],
-  },
-  {
-    title: 'Sales Director',
-    department: 'sales',
-    location: 'Los Angeles, CA',
-    description:
-      'Oversee our sales operations and drive revenue growth through strategic planning and client management.',
-    company: 'SalesPro',
-    salary: '$80K - $120K per year',
-    type: 'Full Time',
-    skills: ['Sales Strategy', 'Client Relations', 'Negotiation'],
-  },
-  {
-    title: 'Software Engineer',
-    department: 'engineering',
-    location: 'New York, NY',
-    description:
-      'Join our team as a Software Engineer and work on cutting-edge technologies to create innovative solutions.',
-    company: 'TechGiant',
-    salary: '$90K - $130K per year',
-    type: 'Full Time',
-    skills: ['JavaScript', 'React', 'Node.js'],
-  },
-  {
-    title: 'Digital Marketing Manager',
-    department: 'marketing',
-    location: 'San Francisco, CA',
-    description:
-      'Lead our marketing efforts to drive growth and increase brand awareness across digital channels.',
-    company: 'MarketMasters',
-    salary: '$70K - $100K per year',
-    type: 'Full Time',
-    skills: ['SEO', 'Content Marketing', 'Social Media'],
-  },
-  {
-    title: 'Sales Director',
-    department: 'sales',
-    location: 'Los Angeles, CA',
-    description:
-      'Oversee our sales operations and drive revenue growth through strategic planning and client management.',
-    company: 'SalesPro',
-    salary: '$80K - $120K per year',
-    type: 'Full Time',
-    skills: ['Sales Strategy', 'Client Relations', 'Negotiation'],
-  },
-  {
-    title: 'Software Engineer',
-    department: 'engineering',
-    location: 'New York, NY',
-    description:
-      'Join our team as a Software Engineer and work on cutting-edge technologies to create innovative solutions.',
-    company: 'TechGiant',
-    salary: '$90K - $130K per year',
-    type: 'Full Time',
-    skills: ['JavaScript', 'React', 'Node.js'],
-  },
-  {
-    title: 'Digital Marketing Manager',
-    department: 'marketing',
-    location: 'San Francisco, CA',
-    description:
-      'Lead our marketing efforts to drive growth and increase brand awareness across digital channels.',
-    company: 'MarketMasters',
-    salary: '$70K - $100K per year',
-    type: 'Full Time',
-    skills: ['SEO', 'Content Marketing', 'Social Media'],
-  },
-  {
-    title: 'Sales Director',
-    department: 'sales',
-    location: 'Los Angeles, CA',
-    description:
-      'Oversee our sales operations and drive revenue growth through strategic planning and client management.',
-    company: 'SalesPro',
-    salary: '$80K - $120K per year',
-    type: 'Full Time',
-    skills: ['Sales Strategy', 'Client Relations', 'Negotiation'],
-  },
-  {
-    title: 'Software Engineer',
-    department: 'engineering',
-    location: 'New York, NY',
-    description:
-      'Join our team as a Software Engineer and work on cutting-edge technologies to create innovative solutions.',
-    company: 'TechGiant',
-    salary: '$90K - $130K per year',
-    type: 'Full Time',
-    skills: ['JavaScript', 'React', 'Node.js'],
-  },
-  {
-    title: 'Digital Marketing Manager',
-    department: 'marketing',
-    location: 'San Francisco, CA',
-    description:
-      'Lead our marketing efforts to drive growth and increase brand awareness across digital channels.',
-    company: 'MarketMasters',
-    salary: '$70K - $100K per year',
-    type: 'Full Time',
-    skills: ['SEO', 'Content Marketing', 'Social Media'],
-  },
-  {
-    title: 'Sales Director',
-    department: 'sales',
-    location: 'Los Angeles, CA',
-    description:
-      'Oversee our sales operations and drive revenue growth through strategic planning and client management.',
-    company: 'SalesPro',
-    salary: '$80K - $120K per year',
-    type: 'Full Time',
-    skills: ['Sales Strategy', 'Client Relations', 'Negotiation'],
-  },
-  // Add more job objects as needed
-];
-
 const OpenPositions = () => {
-  const [filteredJobs, setFilteredJobs] = useState(jobs);
+  const [allJobs, setAllJobs] = useState([]);
+  const [filteredJobs, setFilteredJobs] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [departments, setDepartments] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const jobsPerPage = 3;
 
+  useEffect(() => {
+    fetch('src/data/db.json') // Update this to match your actual path
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Fetched Data:', data); // Debugging line
+        const postedJobs = data.jobs.filter(job => job.status === 'Posted');
+        setAllJobs(postedJobs);
+        setFilteredJobs(postedJobs);
+
+        const uniqueDepartments = Array.from(new Set(data.jobs.map(job => job.department)));
+        setDepartments(uniqueDepartments);
+      });
+  }, []);
+
   const filterJobs = (category) => {
     if (category === 'all') {
-      setFilteredJobs(jobs);
+      setFilteredJobs(allJobs);
     } else {
-      const filtered = jobs.filter((job) => job.department === category);
+      const filtered = allJobs.filter((job) => job.department === category);
       setFilteredJobs(filtered);
     }
-    setCurrentPage(1); // Reset to first page when filtering
+    setCurrentPage(1);
   };
 
   const handleDropdownChange = (event) => {
@@ -300,7 +48,6 @@ const OpenPositions = () => {
   const currentJobs = filteredJobs.slice(indexOfFirstJob, indexOfLastJob);
   const totalPages = Math.ceil(filteredJobs.length / jobsPerPage);
 
-  // Calculate pagination range
   const pageNumbers = [];
   let startPage = Math.max(1, currentPage - 2);
   let endPage = Math.min(totalPages, currentPage + 2);
@@ -330,9 +77,11 @@ const OpenPositions = () => {
             onChange={handleDropdownChange}
           >
             <option value="all">All</option>
-            <option value="engineering">Engineering</option>
-            <option value="marketing">Marketing</option>
-            <option value="sales">Sales</option>
+            {departments.map((dept, index) => (
+              <option key={index} value={dept}>
+                {dept}
+              </option>
+            ))}
           </select>
         </div>
         <div
@@ -340,60 +89,65 @@ const OpenPositions = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-12"
         >
           {currentJobs.length > 0 ? (
-            currentJobs.map((job, index) => (
-              <div
-                key={index}
-                className="bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105"
-              >
-                <div className="flex items-center p-4 border-b border-gray-200">
-                  <img
-                    className="w-16 h-16 object-cover"
-                    src="public/assets/IElogo.png"
-                    alt={job.company}
-                  />
-                  <div className="ml-4">
-                    <h3 className="text-xl font-semibold text-[#071952]">
-                      {job.company}
+            currentJobs.map((job, index) => {
+              // Normalize preferredSkills to an array
+              const skills = Array.isArray(job.preferredSkills) ? job.preferredSkills : [job.preferredSkills];
+              return (
+                <div
+                  key={index}
+                  className="bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105"
+                >
+                  <div className="flex items-center p-4 border-b border-gray-200">
+                    <img
+                      className="w-16 h-16 object-cover"
+                      src="public/assets/IElogo.png"
+                      alt={job.company}
+                    />
+                    <div className="ml-4">
+                      <h3 className="text-xl font-semibold text-[#071952]">
+                        {job.department}
+                      </h3>
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-2xl font-medium text-[#071952] mb-2">
+                      {job.title}
                     </h3>
-                    <span className="text-sm text-[#37B7C3]">
-                      {job.location}
-                    </span>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <h3 className="text-2xl font-medium text-[#071952] mb-2">
-                    {job.title}
-                  </h3>
-                  <p className="text-sm text-gray-600 mb-4">
-                    {job.description}
-                  </p>
-                  <div className="flex flex-wrap mb-2">
-                    {job.skills.map((skill, index) => (
-                      <span
-                        key={index}
-                        className="bg-[#37B7C3] text-white text-xs font-medium px-2 py-1 rounded-full mr-2 mb-2"
-                      >
-                        {skill}
+                    <p className="text-sm text-gray-600 mb-4">
+                      {job.description}
+                    </p>
+                    <div className="text-sm text-[#37B7C3] mb-4">
+                      <span className='text-cyan-700'> Application Deadline: </span> {job.endDate}
+                    </div>
+                    <div className="flex flex-wrap mb-2">
+                      {skills.length > 0 ? (
+                        skills.map((skill, index) => (
+                          <span
+                            key={index}
+                            className="bg-[#37B7C3] text-white text-xs font-medium px-2 py-1 rounded-full mr-2 mb-2"
+                          >
+                            {skill}
+                          </span>
+                        ))
+                      ) : (
+                        <span>No Skills Listed</span> // Display if no skills are present
+                      )}
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-medium text-[#071952]">
+                        {job.type}
                       </span>
-                    ))}
-                  </div>
-                  <div className="text-sm text-[#37B7C3] mb-4">
-                    {job.salary}
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium text-[#071952]">
-                      {job.type}
-                    </span>
-                    <Link
-                      to={`/job-details`}
-                      className="text-[#37B7C3] font-medium hover:text-[#088395] transition duration-300"
-                    >
-                      Show Details
-                    </Link>
+                      <Link
+                        to={`/job-details/${job.id}`}
+                        className="text-[#37B7C3] font-medium hover:text-[#088395] transition duration-300"
+                      >
+                        Show Details
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))
+              );
+            })
           ) : (
             <div
               id="no-jobs-card"
