@@ -50,7 +50,9 @@
       "requirements": "d",
       "preferredSkills": "s",
       "type": "Full-time",
-      "status": "Accepted"
+      "status": "Posted",
+      "startDate": "2024-08-08",
+      "endDate": "2024-08-30"
     },
     {
       "id": "bce8",
@@ -69,6 +71,24 @@
       ],
       "type": "Full-time",
       "status": "Accepted"
+    },
+    {
+      "id": "61f4",
+      "title": "abc",
+      "department": "abc",
+      "location": "abc",
+      "description": "abc",
+      "responsibilities": [
+        "abc",
+        "abc"
+      ],
+      "requirements": [
+        "abc"
+      ],
+      "preferredSkills": [
+        "abc"
+      ],
+      "type": "Full-time"
     }
   ]
 }

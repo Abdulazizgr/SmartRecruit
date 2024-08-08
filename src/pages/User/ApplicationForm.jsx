@@ -77,7 +77,7 @@ const ApplicationForm = () => {
     <section id="application-form" className="bg-[#F9FAFB] py-12">
       <button
         type="button"
-        className="uppercase py-2 px-4 rounded-lg bg-gray-500 border-2 border-transparent text-white text-md ml-4 hover:bg-gray-700"
+        className="uppercase py-2 px-2 rounded-lg bg-[#071952] border-2 border-transparent text-white text-md ml-4 hover:bg-[#088395]"
         onClick={() => (window.location.href = '/')}
       >
         Back to Home
