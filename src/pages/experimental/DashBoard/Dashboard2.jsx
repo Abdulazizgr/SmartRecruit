@@ -24,7 +24,7 @@ const Dashboard2 = () => {
         const response = await fetch('http://localhost:5000/jobs');
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
-        const acceptedJobs = data.filter(job => job.status === 'Accepted');
+        const acceptedJobs = data.filter((job) => job.status === 'Accepted');
         setJobPostings(acceptedJobs);
       } catch (error) {
         setError(error.message);
@@ -44,22 +44,31 @@ const Dashboard2 = () => {
   };
 
   const handleSubmit = async () => {
-    if (window.confirm(`Are you sure you want to post the job with application deadlines from ${startDate} to ${endDate}?`)) {
+    if (
+      window.confirm(
+        `Are you sure you want to post the job with application deadlines from ${startDate} to ${endDate}?`
+      )
+    ) {
       try {
-        const response = await fetch(`http://localhost:5000/jobs/${selectedJob.id}`, {
-          method: 'PATCH',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            status: 'Posted',
-            startDate,
-            endDate,
-          }),
-        });
+        const response = await fetch(
+          `http://localhost:5000/jobs/${selectedJob.id}`,
+          {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              status: 'Posted',
+              startDate,
+              endDate,
+            }),
+          }
+        );
         if (!response.ok) throw new Error('Failed to post job');
         const updatedJob = await response.json();
-        setJobPostings(prevJobs => prevJobs.map(job => job.id === updatedJob.id ? updatedJob : job));
+        setJobPostings((prevJobs) =>
+          prevJobs.map((job) => (job.id === updatedJob.id ? updatedJob : job))
+        );
         setIsPopupOpen(false);
         setStartDate('');
         setEndDate('');
@@ -80,7 +89,7 @@ const Dashboard2 = () => {
             <div className="flex gap-5 p-5">
               <Widgets type="employee" />
               <Widgets type="department" />
-              <Widgets type="open-position" />
+              <Widgets type="open-postion" />
               <Widgets type="attendance" />
             </div>
             <div className="flex gap-5 p-5">
@@ -88,14 +97,18 @@ const Dashboard2 = () => {
               <Chart />
             </div>
             <div className="shadow-[2px_4px_10px_1px_rgba(201,201,201,0.47)] m-5 p-5">
-              <div className="font-medium text-[gray] mb-[15px]">Recent Applicants</div>
+              <div className="font-medium text-[gray] mb-[15px]">
+                Recent Applicants
+              </div>
               <Table data={jobPostings} handlePost={handlePost} />
             </div>
           </>
         )}
         {selectedMenu === 'jobPostings' && (
           <div className="m-5 p-5">
-            <div className="font-medium text-[gray] mb-[15px]">Accepted Job Postings</div>
+            <div className="font-medium text-[gray] mb-[15px]">
+              Accepted Job Postings
+            </div>
             {loading ? (
               <p>Loading...</p>
             ) : error ? (

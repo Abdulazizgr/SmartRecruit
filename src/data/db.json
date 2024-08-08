@@ -83,8 +83,8 @@
       ],
       "type": "Full-time",
       "status": "Accepted",
-      "deadline": "2024-11-15",
-      "posted": true,
+      "deadline": null,
+      "posted": false,
       "teamLeadId": 4,
       "departmentId": 5,
       "keySuggestions": [
@@ -312,12 +312,8 @@
   ],
   "notes": [
     {
-      "id": "d6de",
-      "text": "I need to take applicants today"
-    },
-    {
-      "id": "aa35",
-      "text": "take time"
+      "text": "",
+      "id": "5aca"
     }
   ],
   "teamLeads": [
