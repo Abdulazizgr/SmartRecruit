@@ -115,12 +115,8 @@
       ],
       "type": "Full-time",
       "status": "Pending",
-      "deadline": "2024-08-14T21:00:00.000Z",
-      "keySuggestions": [
-        "React",
-        "GIT",
-        "Node"
-      ],
+      "deadline": "2024-08-08T21:00:00.000Z",
+      "keySuggestions": ["React", "GIT", "Node"],
       "posted": true,
       "teamLeadId": 1,
       "departmentId": 1
@@ -252,9 +248,33 @@
         "PYTHO"
       ],
       "type": "Contract",
-      "status": "Rejected",
-      "posted": true,
-      "deadline": "2024-08-23T21:00:00.000Z"
+      "status": "Accepted",
+      "posted": false,
+      "deadline": "2025-08-06T21:00:00.000Z"
+    },
+    {
+      "id": "fbf1",
+      "title": "aa",
+      "department": "Engineering",
+      "location": "a",
+      "description": "aaaa",
+      "responsibilities": ["aaa", "aaa"],
+      "requirements": ["aa", "aa"],
+      "preferredSkills": ["aa", "aa", "aaaa", "aaa"],
+      "keySuggestions": ["aaa", "aaaaa", "aaaaa"],
+      "type": "Full-time"
+    },
+    {
+      "id": "ae56",
+      "title": "s",
+      "department": "Marketing",
+      "location": "s",
+      "description": "s",
+      "responsibilities": ["s", "a", "v"],
+      "requirements": ["a"],
+      "preferredSkills": ["a"],
+      "keySuggestions": ["a"],
+      "type": "Full-time"
     }
   ],
   "events": [
@@ -313,7 +333,7 @@
   "notes": [
     {
       "text": "",
-      "id": "5aca"
+      "id": "3f7a"
     }
   ],
   "teamLeads": [
