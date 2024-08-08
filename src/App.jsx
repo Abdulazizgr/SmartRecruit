@@ -20,6 +20,7 @@ import Dashboard2 from './pages/experimental/DashBoard/Dashboard2';
 // import Login from './pages/experimental/Login/Login';
 import Calendar from './pages/experimental/DashBoard/Calendar';
 import HRJobPostingPage from './pages/experimental/Control/HRJobPosting';
+import Report from './pages/experimental/Control/Report';
 
 const App = () => {
   return (
@@ -73,6 +74,10 @@ const App = () => {
           <Route
             path="/dashboard_2/job-posting"
             element={<HRJobPostingPage />}
+          />
+          <Route
+            path="/dashboard_2/report"
+            element={ <Report /> }
           />
         </Routes>
       </Router>
