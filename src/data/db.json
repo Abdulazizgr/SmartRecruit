@@ -21,8 +21,8 @@
       ],
       "type": "Full-time",
       "status": "Accepted",
-      "deadline": null,
-      "posted": false,
+      "deadline": "2024-08-15T21:00:00.000Z",
+      "posted": true,
       "teamLeadId": 1,
       "departmentId": 3,
       "keySuggestions": [
@@ -35,7 +35,7 @@
       "id": "9226",
       "title": "Technical Support Specialist",
       "department": "Technical Support",
-      "location": "Canada",
+      "location": "CANADDA",
       "description": "We are looking for a Technical Support Specialist to assist our clients with technical issues.",
       "responsibilities": [
         "Identify, troubleshoot, and resolve issues",
@@ -52,7 +52,7 @@
       ],
       "type": "Full-time",
       "status": "Accepted",
-      "deadline": "2024-10-31",
+      "deadline": "2024-08-14T21:00:00.000Z",
       "posted": true,
       "teamLeadId": 2,
       "departmentId": 4,
@@ -91,6 +91,67 @@
         "cybersecurity",
         "CISSP"
       ]
+    },
+    {
+      "id": "f17c",
+      "title": "Data Analyst",
+      "department": "Engineering",
+      "location": "Addis Ababa",
+      "description": "We are in need of a Data Analyst to interpret data, analyze results using statistical techniques, and provide ongoing reports to support our business decisions.",
+      "responsibilities": [
+        "Proven experience as a Data Analyst or similar role",
+        "Strong knowledge of SQL and Excel",
+        "Experience with data visualization tools (e.g., Tableau, Power BI)",
+        "Analytical mind and problem-solving aptitude"
+      ],
+      "requirements": [
+        "Proven experience as a Data Analyst or similar role",
+        "Strong knowledge of SQL and Excel",
+        "Experience with data visualization tools (e.g., Tableau, Power BI)",
+        "Analytical mind and problem-solving aptitude"
+      ],
+      "preferredSkills": [
+        "Version Control"
+      ],
+      "type": "Full-time",
+      "status": "Pending",
+      "deadline": "2024-08-14T21:00:00.000Z",
+      "keySuggestions": [
+        "React",
+        "GIT",
+        "Node"
+      ],
+      "posted": true,
+      "teamLeadId": 1,
+      "departmentId": 1
+    },
+    {
+      "id": "0eb8",
+      "title": "Marketing Specialist",
+      "department": "Marketing",
+      "location": "Addis Ababa",
+      "description": "Join our marketing team as a Marketing Specialist to develop and execute effective marketing strategies, increase brand awareness, and drive customer engagement.",
+      "responsibilities": [
+        "Create and implement marketing campaigns and strategies",
+        "Analyze market trends and customer behavior to identify opportunities",
+        "Manage social media accounts and digital marketing efforts",
+        "Collaborate with the sales team to support promotional activities"
+      ],
+      "requirements": [
+        "Proven experience as a Marketing Specialist or similar role",
+        "Strong understanding of digital marketing tools and techniques",
+        "Excellent written and verbal communication skills",
+        "Ability to analyze data and generate actionable insights"
+      ],
+      "preferredSkills": [
+        "Experience with SEO and SEM"
+      ],
+      "type": "Part-time",
+      "status": "Accepted",
+      "deadline": "2024-08-08T21:00:00.000Z",
+      "posted": true,
+      "teamLeadId": 2,
+      "departmentId": 2
     },
     {
       "id": "9224",
@@ -141,13 +202,14 @@
       ],
       "keySuggestions": [],
       "type": "Full-time",
-      "status": "Rejected"
+      "posted": true,
+      "deadline": "2024-08-22T21:00:00.000Z"
     },
     {
       "id": "2909",
-      "title": "s",
+      "title": "S",
       "department": "Marketing",
-      "location": "s",
+      "location": "sf",
       "description": "s",
       "responsibilities": [
         "s"
@@ -163,7 +225,9 @@
         "Expre"
       ],
       "type": "Full-time",
-      "status": "Rejected"
+      "status": "Rejected",
+      "posted": true,
+      "deadline": "2024-08-30T21:00:00.000Z"
     },
     {
       "id": "9a57",
@@ -188,80 +252,9 @@
         "PYTHO"
       ],
       "type": "Contract",
-      "status": "Accepted",
-      "posted": false,
-      "deadline": "2025-08-06T21:00:00.000Z"
-    },
-    {
-      "id": "fbf1",
-      "title": "aa",
-      "department": "Engineering",
-      "location": "a",
-      "description": "aaaa",
-      "responsibilities": [
-        "aaa",
-        "aaa"
-      ],
-      "requirements": [
-        "aa",
-        "aa"
-      ],
-      "preferredSkills": [
-        "aa",
-        "aa",
-        "aaaa",
-        "aaa"
-      ],
-      "keySuggestions": [
-        "aaa",
-        "aaaaa",
-        "aaaaa"
-      ],
-      "type": "Full-time",
-      "status": "Accepted"
-    },
-    {
-      "id": "ae56",
-      "title": "s",
-      "department": "Marketing",
-      "location": "s",
-      "description": "s",
-      "responsibilities": [
-        "s",
-        "a",
-        "v"
-      ],
-      "requirements": [
-        "a"
-      ],
-      "preferredSkills": [
-        "a"
-      ],
-      "keySuggestions": [
-        "a"
-      ],
-      "type": "Full-time",
-      "status": "Accepted"
-    },
-    {
-      "id": "f0ce",
-      "title": "qwqwef",
-      "department": "Engineering",
-      "location": "wef",
-      "description": "wefwef",
-      "responsibilities": [
-        "wef"
-      ],
-      "requirements": [
-        "wef"
-      ],
-      "preferredSkills": [
-        "wef"
-      ],
-      "keySuggestions": [
-        "wef"
-      ],
-      "type": "Part-time"
+      "status": "Rejected",
+      "posted": true,
+      "deadline": "2024-08-23T21:00:00.000Z"
     }
   ],
   "events": [
@@ -281,6 +274,11 @@
       "title": "ddd",
       "start": "2024-08-08",
       "end": "2024-08-08"
+    },
+    {
+      "id": "9452",
+      "title": "ffss",
+      "start": "2024-08-07T18:57:41.674Z"
     },
     {
       "id": "8e8a",
@@ -310,126 +308,116 @@
       "id": "2028",
       "title": "dd",
       "start": "2024-08-07T19:13:51.906Z"
-    },
-    {
-      "id": "3684",
-      "title": "hh",
-      "start": "2024-07-31",
-      "end": "2024-07-31"
     }
   ],
   "notes": [
     {
-      "text": "ccccc",
-      "id": "3f7a"
+      "id": "d6de",
+      "text": "I need to take applicants today"
     },
     {
-      "text": "ffffcc",
-      "id": "712a"
-    },
-    {
-      "id": "f138",
-      "text": "ccc"
+      "id": "aa35",
+      "text": "take time"
     }
   ],
   "teamLeads": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Team Lead 1",
       "departmentId": 1
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Team Lead 2",
       "departmentId": 2
     }
   ],
   "managers": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Manager 1"
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Manager 2"
     }
   ],
   "hr": [
     {
-      "id": "1",
+      "id": 1,
       "name": "HR 1"
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "HR 2"
     }
   ],
   "departments": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Engineering",
       "status": "Active",
       "dateFormed": "2020-01-01",
       "positionOpen": false
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Marketing",
       "status": "Active",
       "dateFormed": "2021-06-15",
       "positionOpen": false
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "Network Operations",
       "status": "Active",
       "dateFormed": "2018-03-20",
       "positionOpen": true
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "Technical Support",
       "status": "Active",
       "dateFormed": "2019-08-10",
       "positionOpen": true
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "Cybersecurity",
       "status": "Active",
       "dateFormed": "2017-12-05",
       "positionOpen": true
     },
     {
-      "id": "6",
+      "id": 6,
       "name": "Research and Development",
       "status": "Active",
       "dateFormed": "2020-05-25",
       "positionOpen": false
     },
     {
-      "id": "7",
+      "id": 7,
       "name": "Product Management",
       "status": "Active",
       "dateFormed": "2021-01-15",
       "positionOpen": true
     },
     {
-      "id": "8",
+      "id": 8,
       "name": "Sales",
       "status": "Active",
       "dateFormed": "2019-11-30",
       "positionOpen": false
     },
     {
-      "id": "9",
+      "id": 9,
       "name": "Quality Assurance",
       "status": "Active",
       "dateFormed": "2018-07-23",
       "positionOpen": true
     },
     {
-      "id": "10",
+      "id": 10,
       "name": "DevOps",
       "status": "Active",
       "dateFormed": "2020-09-17",
@@ -438,53 +426,439 @@
   ],
   "applicants": [
     {
-      "id": "1",
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john.doe@example.com",
+      "coverLetter": "I'm very interested in this role.",
+      "jobPosition": "Software Engineer",
+      "departmentId": 1,
+      "dateApplied": "2024-01-15",
+      "status": "Accepted",
+      "stage": "Interview",
+      "testRating": 85,
+      "interviewRating": 90
+    },
+    {
+      "id": 2,
       "firstName": "Jane",
       "lastName": "Smith",
       "email": "jane.smith@example.com",
-      "phoneNumber": "a",
       "coverLetter": "I have experience in this field.",
       "jobPosition": "Marketing Specialist",
       "departmentId": 2,
-      "dateApplied": "2024-08-04",
-      "additionalDocument": {},
-      "resume": {},
-      "address": "a",
+      "dateApplied": "2024-02-12",
+      "status": "Rejected",
+      "stage": "Screening",
+      "testRating": 70,
+      "interviewRating": 65
+    },
+    {
+      "id": 3,
+      "firstName": "Alice",
+      "lastName": "Johnson",
+      "email": "alice.johnson@example.com",
+      "coverLetter": "I'm passionate about marketing.",
+      "jobPosition": "Marketing Specialist",
+      "departmentId": 2,
+      "dateApplied": "2024-03-08",
+      "status": "Pending",
+      "stage": "Application Review",
+      "testRating": null,
+      "interviewRating": null
+    },
+    {
+      "id": 4,
+      "firstName": "Bob",
+      "lastName": "Brown",
+      "email": "bob.brown@example.com",
+      "coverLetter": "I have extensive experience in software development.",
+      "jobPosition": "Software Engineer",
+      "departmentId": 1,
+      "dateApplied": "2024-04-17",
+      "status": "Accepted",
+      "stage": "Interview",
+      "testRating": 88,
+      "interviewRating": 92
+    },
+    {
+      "id": 5,
+      "firstName": "Charlie",
+      "lastName": "Davis",
+      "email": "charlie.davis@example.com",
+      "coverLetter": "I am a creative problem solver.",
+      "jobPosition": "UI/UX Designer",
+      "departmentId": 3,
+      "dateApplied": "2024-05-23",
+      "status": "Rejected",
+      "stage": "Design Challenge",
+      "testRating": 60,
+      "interviewRating": 70
+    },
+    {
+      "id": 6,
+      "firstName": "Diana",
+      "lastName": "Evans",
+      "email": "diana.evans@example.com",
+      "coverLetter": "I have a strong background in cloud computing.",
+      "jobPosition": "Cloud Engineer",
+      "departmentId": 4,
+      "dateApplied": "2024-06-30",
+      "status": "Pending",
+      "stage": "Technical Test",
+      "testRating": 80,
+      "interviewRating": null
+    },
+    {
+      "id": 7,
+      "firstName": "Evan",
+      "lastName": "Foster",
+      "email": "evan.foster@example.com",
+      "coverLetter": "I love working with data.",
+      "jobPosition": "Data Scientist",
+      "departmentId": 5,
+      "dateApplied": "2024-07-11",
+      "status": "Accepted",
+      "stage": "Technical Test",
+      "testRating": 95,
+      "interviewRating": 85
+    },
+    {
+      "id": 8,
+      "firstName": "Fiona",
+      "lastName": "Garcia",
+      "email": "fiona.garcia@example.com",
+      "coverLetter": "I have experience in project management.",
+      "jobPosition": "Project Manager",
+      "departmentId": 6,
+      "dateApplied": "2024-08-22",
+      "status": "Rejected",
+      "stage": "Final Interview",
+      "testRating": 75,
+      "interviewRating": 80
+    },
+    {
+      "id": 9,
+      "firstName": "George",
+      "lastName": "Harris",
+      "email": "george.harris@example.com",
+      "coverLetter": "I am an expert in cloud infrastructure.",
+      "jobPosition": "Cloud Engineer",
+      "departmentId": 4,
+      "dateApplied": "2024-09-05",
+      "status": "Pending",
+      "stage": "Technical Test",
+      "testRating": 85,
+      "interviewRating": null
+    },
+    {
+      "id": 10,
+      "firstName": "Hannah",
+      "lastName": "Iglesias",
+      "email": "hannah.iglesias@example.com",
+      "coverLetter": "I am passionate about software engineering.",
+      "jobPosition": "Software Engineer",
+      "departmentId": 1,
+      "dateApplied": "2024-01-19",
+      "status": "Accepted",
+      "stage": "Interview",
+      "testRating": 90,
+      "interviewRating": 88
+    },
+    {
+      "id": 11,
+      "firstName": "Ian",
+      "lastName": "Jones",
+      "email": "ian.jones@example.com",
+      "coverLetter": "I have strong marketing skills.",
+      "jobPosition": "Marketing Specialist",
+      "departmentId": 2,
+      "dateApplied": "2024-02-25",
+      "status": "Rejected",
+      "stage": "Screening",
+      "testRating": 65,
+      "interviewRating": 70
+    },
+    {
+      "id": 12,
+      "firstName": "Jack",
+      "lastName": "King",
+      "email": "jack.king@example.com",
+      "coverLetter": "I am eager to start my career in UI/UX design.",
+      "jobPosition": "UI/UX Designer",
+      "departmentId": 3,
+      "dateApplied": "2024-03-10",
+      "status": "Pending",
+      "stage": "Application Review",
+      "testRating": null,
+      "interviewRating": null
+    },
+    {
+      "id": 13,
+      "firstName": "Karen",
+      "lastName": "Lewis",
+      "email": "karen.lewis@example.com",
+      "coverLetter": "I bring a wealth of experience in project management.",
+      "jobPosition": "Project Manager",
+      "departmentId": 6,
+      "dateApplied": "2024-04-22",
+      "status": "Accepted",
+      "stage": "Final Interview",
+      "testRating": null,
+      "interviewRating": 90
+    },
+    {
+      "id": 14,
+      "firstName": "Liam",
+      "lastName": "Martinez",
+      "email": "liam.martinez@example.com",
+      "coverLetter": "I have extensive experience in cloud engineering.",
+      "jobPosition": "Cloud Engineer",
+      "departmentId": 4,
+      "dateApplied": "2024-05-28",
+      "status": "Rejected",
+      "stage": "Technical Test",
+      "testRating": 55,
+      "interviewRating": 60
+    },
+    {
+      "id": 15,
+      "firstName": "Megan",
+      "lastName": "Nelson",
+      "email": "megan.nelson@example.com",
+      "coverLetter": "I am skilled in data analysis.",
+      "jobPosition": "Data Scientist",
+      "departmentId": 5,
+      "dateApplied": "2024-06-05",
+      "status": "Pending",
+      "stage": "Technical Test",
+      "testRating": 78,
+      "interviewRating": null
+    },
+    {
+      "id": 16,
+      "firstName": "Nathan",
+      "lastName": "Owens",
+      "email": "nathan.owens@example.com",
+      "coverLetter": "I excel in software engineering.",
+      "jobPosition": "Software Engineer",
+      "departmentId": 1,
+      "dateApplied": "2024-07-16",
+      "status": "Accepted",
+      "stage": "Final Interview",
+      "testRating": 88,
+      "interviewRating": 92
+    },
+    {
+      "id": 17,
+      "firstName": "Olivia",
+      "lastName": "Perez",
+      "email": "olivia.perez@example.com",
+      "coverLetter": "I have strong project management skills.",
+      "jobPosition": "Project Manager",
+      "departmentId": 6,
+      "dateApplied": "2024-08-29",
+      "status": "Rejected",
+      "stage": "Final Interview",
+      "testRating": 65,
+      "interviewRating": 70
+    },
+    {
+      "id": 333,
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john.doe@example.com",
+      "coverLetter": "I am very interested in the position.",
+      "jobPosition": "Software Engineer",
+      "departmentId": 1,
+      "dateApplied": "2024-08-05",
       "status": "Pending",
       "stage": null,
       "testRating": null,
       "interviewRating": null
     },
     {
-      "id": "2",
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john.doe@example.com",
+      "coverLetter": "I am eager to contribute.",
+      "jobPosition": "Software Developer",
+      "departmentId": 1,
+      "dateApplied": "2024-01-15",
+      "status": "Accepted",
+      "stage": "Interview",
+      "testRating": 85,
+      "interviewRating": 90
+    },
+    {
+      "id": 2,
       "firstName": "Jane",
       "lastName": "Smith",
       "email": "jane.smith@example.com",
-      "phoneNumber": "a",
+      "coverLetter": "I have experience in this field.",
+      "jobPosition": "Marketing Specialist",
+      "departmentId": 2,
+      "dateApplied": "2024-02-20",
+      "status": "Rejected",
+      "stage": "Test",
+      "testRating": 70,
+      "interviewRating": null
+    },
+    {
+      "id": 3,
+      "firstName": "Alice",
+      "lastName": "Brown",
+      "email": "alice.brown@example.com",
+      "coverLetter": "I am passionate about marketing.",
+      "jobPosition": "Marketing Specialist",
+      "departmentId": 2,
+      "dateApplied": "2024-03-10",
+      "status": "Pending",
+      "stage": "Applied",
+      "testRating": null,
+      "interviewRating": null
+    },
+    {
+      "id": 4,
+      "firstName": "Michael",
+      "lastName": "Johnson",
+      "email": "michael.johnson@example.com",
+      "coverLetter": "I have a strong technical background.",
+      "jobPosition": "Cloud Engineer",
+      "departmentId": 3,
+      "dateApplied": "2024-04-05",
+      "status": "Accepted",
+      "stage": "Interview",
+      "testRating": 88,
+      "interviewRating": 92
+    },
+    {
+      "id": 5,
+      "firstName": "Emily",
+      "lastName": "Davis",
+      "email": "emily.davis@example.com",
+      "coverLetter": "I excel in project management.",
+      "jobPosition": "Project Manager",
+      "departmentId": 4,
+      "dateApplied": "2024-05-12",
+      "status": "Accepted",
+      "stage": "Interview",
+      "testRating": 80,
+      "interviewRating": 85
+    },
+    {
+      "id": 6,
+      "firstName": "Chris",
+      "lastName": "Lee",
+      "email": "chris.lee@example.com",
+      "coverLetter": "I bring creativity to design.",
+      "jobPosition": "UI/UX Designer",
+      "departmentId": 5,
+      "dateApplied": "2024-06-07",
+      "status": "Rejected",
+      "stage": "Interview",
+      "testRating": 75,
+      "interviewRating": 70
+    },
+    {
+      "id": 7,
+      "firstName": "David",
+      "lastName": "Martinez",
+      "email": "david.martinez@example.com",
+      "coverLetter": "I am interested in cloud technology.",
+      "jobPosition": "Cloud Engineer",
+      "departmentId": 3,
+      "dateApplied": "2024-07-15",
+      "status": "Pending",
+      "stage": "Applied",
+      "testRating": null,
+      "interviewRating": null
+    },
+    {
+      "id": 8,
+      "firstName": "Sophia",
+      "lastName": "Wilson",
+      "email": "sophia.wilson@example.com",
+      "coverLetter": "I am experienced in Laravel development.",
+      "jobPosition": "Backend Developer",
+      "departmentId": 1,
+      "dateApplied": "2024-08-18",
+      "status": "Accepted",
+      "stage": "Interview",
+      "testRating": 90,
+      "interviewRating": 95
+    },
+    {
+      "id": 9,
+      "firstName": "Olivia",
+      "lastName": "Taylor",
+      "email": "olivia.taylor@example.com",
+      "coverLetter": "I am a detail-oriented project manager.",
+      "jobPosition": "Project Manager",
+      "departmentId": 4,
+      "dateApplied": "2024-09-05",
+      "status": "Rejected",
+      "stage": "Interview",
+      "testRating": 82,
+      "interviewRating": 80
+    },
+    {
+      "id": 2323,
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "email": "jane.smith@example.com",
       "coverLetter": "I have experience in this field.",
       "jobPosition": "Marketing Specialist",
       "departmentId": 2,
       "dateApplied": "2024-08-04",
-      "additionalDocument": {},
-      "resume": {},
-      "address": "a",
       "status": "Pending",
       "stage": null,
       "testRating": null,
       "interviewRating": null
     },
     {
-      "id": "538b",
-      "firstName": "Abdulaziz",
-      "lastName": "isa",
-      "email": "abdulazizisa579@gmail.com",
-      "phoneNumber": "0938087848",
-      "address": "Ethiopia",
+      "id": "a952",
+      "firstName": "a",
+      "lastName": "a",
+      "email": "a@df.com",
+      "phoneNumber": "a",
+      "address": "a",
       "resume": {},
-      "coverLetter": "sdcghj",
+      "coverLetter": "a",
       "additionalDocument": {},
       "jobPosition": "",
-      "departmentId": "6",
+      "departmentId": "2",
+      "status": "Pending",
+      "dateApplied": "2024-08-07"
+    },
+    {
+      "id": "593f",
+      "firstName": "a",
+      "lastName": "aa",
+      "email": "a@a.com",
+      "phoneNumber": "0993993",
+      "address": "3333",
+      "resume": {},
+      "coverLetter": "3333",
+      "additionalDocument": {},
+      "jobPosition": "",
+      "departmentId": "2",
+      "status": "Pending",
+      "dateApplied": "2024-08-08"
+    },
+    {
+      "id": "13e6",
+      "firstName": "woow",
+      "lastName": "woow",
+      "email": "yyy@gmail.com",
+      "phoneNumber": "09393833",
+      "address": "039383383",
+      "resume": {},
+      "coverLetter": "oeodowp;dkojl",
+      "additionalDocument": {},
+      "jobPosition": "",
+      "departmentId": "8",
       "status": "Pending",
       "dateApplied": "2024-08-08"
     }
