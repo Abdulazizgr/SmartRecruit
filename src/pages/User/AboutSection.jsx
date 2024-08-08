@@ -8,14 +8,14 @@ import {
 
 const AboutSection = () => {
   return (
-    <section id='aboutsection' className=" text-gray-700 body-font pt-8">
+    <section id='aboutsection' className="text-gray-700 body-font pt-8">
       <div className="flex justify-center mt-10 text-4xl font-regular">
         Why Choose Us?
       </div>
       <div className="container px-5 py-12 mx-auto">
         <div className="flex flex-wrap text-center justify-center">
           <div className="p-4 md:w-1/4 sm:w-1/2">
-            <div className="px-4 py-6 transform transition duration-500 hover:scale-110">
+            <div className="px-4 py-6 transform transition duration-500 hover:scale-75 hover:bg-blue-50 hover:shadow-lg rounded-lg">
               <div className="flex justify-center mb-3">
                 <CheckCircleIcon className="w-16 text-gray-900" />
               </div>
@@ -26,7 +26,7 @@ const AboutSection = () => {
           </div>
 
           <div className="p-4 md:w-1/4 sm:w-1/2">
-            <div className="px-4 py-6 transform transition duration-500 hover:scale-110">
+            <div className="px-4 py-6 transform transition duration-500 hover:scale-75 hover:bg-blue-50 hover:shadow-lg rounded-lg">
               <div className="flex justify-center mb-3">
                 <StarIcon className="w-16 text-gray-900" />
               </div>
@@ -37,7 +37,7 @@ const AboutSection = () => {
           </div>
 
           <div className="p-4 md:w-1/4 sm:w-1/2">
-            <div className="px-4 py-6 transform transition duration-500 hover:scale-110">
+            <div className="px-4 py-6 transform transition duration-500 hover:scale-75 hover:bg-blue-50 hover:shadow-lg rounded-lg">
               <div className="flex justify-center mb-3">
                 <LightBulbIcon className="w-16 text-gray-900" />
               </div>
@@ -48,7 +48,7 @@ const AboutSection = () => {
           </div>
 
           <div className="p-4 md:w-1/4 sm:w-1/2">
-            <div className="px-4 py-6 transform transition duration-500 hover:scale-110">
+            <div className="px-4 py-6 transform transition duration-500 hover:scale-75 hover:bg-blue-50 hover:shadow-lg rounded-lg">
               <div className="flex justify-center mb-3">
                 <UsersIcon className="w-16 text-gray-900" />
               </div>

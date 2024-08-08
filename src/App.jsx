@@ -33,6 +33,7 @@ const App = () => {
           <Route path="/manager-login" element={<ManagerLogin />} />
           <Route path="/see-posted-job" element={<PostedJobs />} />
           {/* <Route path='/see-history' element={ <StatusHistory /> } /> */}
+          <Route path="/Postjobs" element={<TeamLeadPage />} />
 
           <Route path="/job-details/:id" element={<JobDetailsPage />} />
           <Route path="/application-form" element={<ApplicationForm />} />

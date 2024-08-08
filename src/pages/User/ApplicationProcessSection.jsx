@@ -34,11 +34,11 @@ const HowItWorksSection = () => {
             />
           </div>
           <div className="relative grid grid-cols-1 text-center gap-y-12 md:grid-cols-3 gap-x-12">
-            <div>
-              <div className="flex items-center justify-center w-16 h-16 mx-auto bg-[#071952] border-2 border-[#37B7C3] rounded-full shadow">
+            <div className="">
+              <div className="flex items-center justify-center w-16 h-16 mx-auto  bg-[#071952] border-2 border-[#37B7C3] rounded-full shadow">
                 <CheckCircleIcon className="w-16 text-[#f0f4f8]" />
               </div>
-              <h3 className="mt-6 text-xl text-[#071952] font-semibold leading-tight md:mt-10">
+              <h3 className="mt-6 text-xl text-[#071952] font-semibold leading-tight md:mt-10 ">
                 Apply
               </h3>
               <p className="mt-4 text-base text-[#071952] md:text-lg">

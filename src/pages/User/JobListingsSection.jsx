@@ -85,7 +85,7 @@ const OpenPositions = () => {
   }
 
   return (
-    <section id="job-listings" className="py-12 bg-[#EEEDEB]">
+    <section id="job-listings" className="py-12 bg-blue-50">
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold text-center mb-6 text-[#071952]">
           Open Positions

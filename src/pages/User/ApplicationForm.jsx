@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
+import axios from 'axios';
 
 const ApplicationForm = () => {
   const [formData, setFormData] = useState({
@@ -12,9 +13,23 @@ const ApplicationForm = () => {
     coverLetter: '',
     additionalDocument: '',
     jobPosition: '',
+    departmentId: '', // Ensure departmentId is included
   });
 
   const [loading, setLoading] = useState(false);
+  const [departments, setDepartments] = useState([]);
+
+  useEffect(() => {
+    // Fetch departments data from json-server
+    axios
+      .get('http://localhost:5000/departments')
+      .then((response) => {
+        setDepartments(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching departments:', error);
+      });
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,6 +49,11 @@ const ApplicationForm = () => {
     const templateID = 'template_xuuspy6';
     const userID = 'd_Qav9-GzQmZYbbzo';
 
+    // Find selected department name
+    const selectedDepartment = departments.find(
+      (dept) => dept.id === formData.departmentId
+    );
+
     const templateParams = {
       firstName: formData.firstName,
       lastName: formData.lastName,
@@ -43,28 +63,44 @@ const ApplicationForm = () => {
       resume: formData.resume.name,
       coverLetter: formData.coverLetter,
       additionalDocument: formData.additionalDocument.name,
-      jobPosition: formData.jobPosition,
+      jobPosition: selectedDepartment
+        ? selectedDepartment.name
+        : 'Not Selected',
     };
 
     emailjs
       .send(serviceID, templateID, templateParams, userID)
-      .then((response) => {
-        console.log('Email sent successfully!', response.status, response.text);
-        alert('Application submitted successfully');
-        setLoading(false);
+      .then(() => {
+        // Add application to json-server
+        axios
+          .post('http://localhost:5000/applicants', {
+            ...formData,
+            status: 'Pending', // Ensure status is set to 'Pending'
+            dateApplied: new Date().toISOString().split('T')[0], // Set dateApplied to current date
+          })
+          .then(() => {
+            alert('Application submitted successfully');
+            setLoading(false);
 
-        // Reset form data
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phoneNumber: '',
-          address: '',
-          resume: '',
-          coverLetter: '',
-          additionalDocument: '',
-          jobPosition: '',
-        });
+            // Reset form data
+            setFormData({
+              firstName: '',
+              lastName: '',
+              email: '',
+              phoneNumber: '',
+              address: '',
+              resume: '',
+              coverLetter: '',
+              additionalDocument: '',
+              jobPosition: '',
+              departmentId: '',
+            });
+          })
+          .catch((error) => {
+            console.error('Error saving application:', error);
+            alert('Error submitting application');
+            setLoading(false);
+          });
       })
       .catch((error) => {
         console.error('Error sending email:', error);
@@ -77,7 +113,7 @@ const ApplicationForm = () => {
     <section id="application-form" className="bg-[#F9FAFB] py-12">
       <button
         type="button"
-        className="uppercase py-2 px-2 rounded-lg bg-[#071952] border-2 border-transparent text-white text-md ml-4 hover:bg-[#088395]"
+        className="uppercase py-2 px-4 rounded-lg bg-gray-500 border-2 border-transparent text-white text-md ml-4 hover:bg-gray-700"
         onClick={() => (window.location.href = '/')}
       >
         Back to Home
@@ -171,6 +207,7 @@ const ApplicationForm = () => {
                 required
               />
             </div>
+
             <div className="mb-6">
               <label className="block text-gray-700 text-sm font-bold mb-2">
                 Cover Letter
@@ -202,23 +239,28 @@ const ApplicationForm = () => {
               </label>
               <select
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                name="jobPosition"
-                value={formData.jobPosition}
+                name="departmentId"
+                value={formData.departmentId}
                 onChange={handleChange}
                 required
               >
                 <option value="">Select a position</option>
-                <option value="engineering">Engineering</option>
-                <option value="marketing">Marketing</option>
-                <option value="sales">Sales</option>
+                {departments.map((dept) => (
+                  <option key={dept.id} value={dept.id}>
+                    {dept.name}
+                  </option>
+                ))}
               </select>
             </div>
-            <div className="text-center">
+            <div className="flex items-center justify-between">
               <button
                 type="submit"
-                className="uppercase py-2 px-4 rounded-lg bg-[#071952] border-2 border-transparent text-[#EBF4F6] text-md mr-4 hover:bg-[#088395]"
+                className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
+                  loading ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
+                disabled={loading}
               >
-                {loading ? 'Submitting...' : 'Submit Application'}
+                {loading ? 'Submitting...' : 'Submit'}
               </button>
             </div>
           </form>

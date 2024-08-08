@@ -81,7 +81,7 @@ const PostJob = () => {
     <div className="bg-white p-8 rounded shadow-lg w-full max-w-2xl mx-auto">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Post a Job</h1>
-        <Link to="/" className="text-blue-500 hover:text-blue-700">
+        <Link to="/Postjobs" className="text-blue-500 hover:text-blue-700">
           Go Back
         </Link>
       </div>
