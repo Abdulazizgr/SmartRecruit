@@ -13,6 +13,7 @@ import {
   CalendarToday as CalendarTodayIcon,
   EmojiEvents,
   KeyboardDoubleArrowRight as MenuIcon,
+  Assessment as ReportIcon,
 } from '@mui/icons-material';
 
 const Sidebar = ({ setSelectedMenu }) => {
@@ -46,7 +47,7 @@ const Sidebar = ({ setSelectedMenu }) => {
           </li>
           <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100' onClick={() => setSelectedMenu('employee')}>
             <EmployeeIcon className='text-lg text-accent' />
-            {isOpen && <span className='text-sm font-semibold text-primary ml-2.5'>Employee</span>}
+            {isOpen && <span className='text-sm font-semibold text-primary ml-2.5'>Candidates</span>}
           </li>
           <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100' onClick={() => setSelectedMenu('applicants')}>
             <ApplicantsIcon className='text-lg text-accent' />
@@ -57,8 +58,8 @@ const Sidebar = ({ setSelectedMenu }) => {
             {isOpen && <span className='text-sm font-semibold text-primary ml-2.5'>Job Posting</span>}
           </li>
           <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100' onClick={() => setSelectedMenu('award')}>
-            <EmojiEvents className='text-lg text-accent' />
-            {isOpen && <span className='text-sm font-semibold text-primary ml-2.5'>Award</span>}
+            <ReportIcon className='text-lg text-accent' />
+            {isOpen && <span className='text-sm font-semibold text-primary ml-2.5'>Report</span>}
           </li>
           <li className='flex items-center cursor-pointer p-2 hover:bg-purple-100' onClick={() => setSelectedMenu('notification')}>
             <NotificationIcon className='text-lg text-accent' />
