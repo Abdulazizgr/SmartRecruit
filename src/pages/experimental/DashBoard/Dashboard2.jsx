@@ -89,7 +89,7 @@ const Dashboard2 = () => {
             <div className="flex gap-5 p-5">
               <Widgets type="employee" />
               <Widgets type="department" />
-              <Widgets type="open-postion" />
+              <Widgets type="open-position" />
               <Widgets type="attendance" />
             </div>
             <div className="flex gap-5 p-5">
