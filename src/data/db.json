@@ -83,8 +83,8 @@
       ],
       "type": "Full-time",
       "status": "Accepted",
-      "deadline": null,
-      "posted": false,
+      "deadline": "2024-11-15",
+      "posted": true,
       "teamLeadId": 4,
       "departmentId": 5,
       "keySuggestions": [
@@ -115,8 +115,12 @@
       ],
       "type": "Full-time",
       "status": "Pending",
-      "deadline": "2024-08-08T21:00:00.000Z",
-      "keySuggestions": ["React", "GIT", "Node"],
+      "deadline": "2024-08-14T21:00:00.000Z",
+      "keySuggestions": [
+        "React",
+        "GIT",
+        "Node"
+      ],
       "posted": true,
       "teamLeadId": 1,
       "departmentId": 1
@@ -144,7 +148,7 @@
       ],
       "type": "Part-time",
       "status": "Accepted",
-      "deadline": "2024-08-08T21:00:00.000Z",
+      "deadline": "2024-08-22T21:00:00.000Z",
       "posted": true,
       "teamLeadId": 2,
       "departmentId": 2
@@ -248,33 +252,9 @@
         "PYTHO"
       ],
       "type": "Contract",
-      "status": "Accepted",
-      "posted": false,
-      "deadline": "2025-08-06T21:00:00.000Z"
-    },
-    {
-      "id": "fbf1",
-      "title": "aa",
-      "department": "Engineering",
-      "location": "a",
-      "description": "aaaa",
-      "responsibilities": ["aaa", "aaa"],
-      "requirements": ["aa", "aa"],
-      "preferredSkills": ["aa", "aa", "aaaa", "aaa"],
-      "keySuggestions": ["aaa", "aaaaa", "aaaaa"],
-      "type": "Full-time"
-    },
-    {
-      "id": "ae56",
-      "title": "s",
-      "department": "Marketing",
-      "location": "s",
-      "description": "s",
-      "responsibilities": ["s", "a", "v"],
-      "requirements": ["a"],
-      "preferredSkills": ["a"],
-      "keySuggestions": ["a"],
-      "type": "Full-time"
+      "status": "Rejected",
+      "posted": true,
+      "deadline": "2024-08-23T21:00:00.000Z"
     }
   ],
   "events": [
@@ -332,108 +312,112 @@
   ],
   "notes": [
     {
-      "text": "",
-      "id": "3f7a"
+      "id": "d6de",
+      "text": "I need to take applicants today"
+    },
+    {
+      "id": "aa35",
+      "text": "take time"
     }
   ],
   "teamLeads": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Team Lead 1",
       "departmentId": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Team Lead 2",
       "departmentId": 2
     }
   ],
   "managers": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Manager 1"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Manager 2"
     }
   ],
   "hr": [
     {
-      "id": 1,
+      "id": "1",
       "name": "HR 1"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "HR 2"
     }
   ],
   "departments": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Engineering",
       "status": "Active",
       "dateFormed": "2020-01-01",
       "positionOpen": false
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Marketing",
       "status": "Active",
       "dateFormed": "2021-06-15",
       "positionOpen": false
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Network Operations",
       "status": "Active",
       "dateFormed": "2018-03-20",
       "positionOpen": true
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Technical Support",
       "status": "Active",
       "dateFormed": "2019-08-10",
       "positionOpen": true
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Cybersecurity",
       "status": "Active",
       "dateFormed": "2017-12-05",
       "positionOpen": true
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Research and Development",
       "status": "Active",
       "dateFormed": "2020-05-25",
       "positionOpen": false
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Product Management",
       "status": "Active",
       "dateFormed": "2021-01-15",
       "positionOpen": true
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Sales",
       "status": "Active",
       "dateFormed": "2019-11-30",
       "positionOpen": false
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Quality Assurance",
       "status": "Active",
       "dateFormed": "2018-07-23",
       "positionOpen": true
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "DevOps",
       "status": "Active",
       "dateFormed": "2020-09-17",
@@ -442,7 +426,7 @@
   ],
   "applicants": [
     {
-      "id": 1,
+      "id": "1",
       "firstName": "John",
       "lastName": "Doe",
       "email": "john.doe@example.com",
@@ -456,7 +440,7 @@
       "interviewRating": 90
     },
     {
-      "id": 2,
+      "id": "2",
       "firstName": "Jane",
       "lastName": "Smith",
       "email": "jane.smith@example.com",
@@ -464,13 +448,14 @@
       "jobPosition": "Marketing Specialist",
       "departmentId": 2,
       "dateApplied": "2024-02-12",
-      "status": "Rejected",
-      "stage": "Screening",
-      "testRating": 70,
-      "interviewRating": 65
+      "status": "Pending",
+      "stage": null,
+      "testRating": null,
+      "interviewRating": null,
+      "dateProcessed": null
     },
     {
-      "id": 3,
+      "id": "3",
       "firstName": "Alice",
       "lastName": "Johnson",
       "email": "alice.johnson@example.com",
@@ -478,13 +463,14 @@
       "jobPosition": "Marketing Specialist",
       "departmentId": 2,
       "dateApplied": "2024-03-08",
-      "status": "Pending",
-      "stage": "Application Review",
+      "status": "Rejected",
+      "stage": "Rejected",
       "testRating": null,
-      "interviewRating": null
+      "interviewRating": null,
+      "dateProcessed": "2024-08-11T13:06:02.010Z"
     },
     {
-      "id": 4,
+      "id": "4",
       "firstName": "Bob",
       "lastName": "Brown",
       "email": "bob.brown@example.com",
@@ -498,7 +484,7 @@
       "interviewRating": 92
     },
     {
-      "id": 5,
+      "id": "5",
       "firstName": "Charlie",
       "lastName": "Davis",
       "email": "charlie.davis@example.com",
@@ -512,7 +498,7 @@
       "interviewRating": 70
     },
     {
-      "id": 6,
+      "id": "6",
       "firstName": "Diana",
       "lastName": "Evans",
       "email": "diana.evans@example.com",
@@ -526,7 +512,7 @@
       "interviewRating": null
     },
     {
-      "id": 7,
+      "id": "7",
       "firstName": "Evan",
       "lastName": "Foster",
       "email": "evan.foster@example.com",
@@ -540,7 +526,7 @@
       "interviewRating": 85
     },
     {
-      "id": 8,
+      "id": "8",
       "firstName": "Fiona",
       "lastName": "Garcia",
       "email": "fiona.garcia@example.com",
@@ -554,7 +540,7 @@
       "interviewRating": 80
     },
     {
-      "id": 9,
+      "id": "9",
       "firstName": "George",
       "lastName": "Harris",
       "email": "george.harris@example.com",
@@ -568,7 +554,7 @@
       "interviewRating": null
     },
     {
-      "id": 10,
+      "id": "10",
       "firstName": "Hannah",
       "lastName": "Iglesias",
       "email": "hannah.iglesias@example.com",
@@ -582,7 +568,7 @@
       "interviewRating": 88
     },
     {
-      "id": 11,
+      "id": "11",
       "firstName": "Ian",
       "lastName": "Jones",
       "email": "ian.jones@example.com",
@@ -596,7 +582,7 @@
       "interviewRating": 70
     },
     {
-      "id": 12,
+      "id": "12",
       "firstName": "Jack",
       "lastName": "King",
       "email": "jack.king@example.com",
@@ -610,7 +596,7 @@
       "interviewRating": null
     },
     {
-      "id": 13,
+      "id": "13",
       "firstName": "Karen",
       "lastName": "Lewis",
       "email": "karen.lewis@example.com",
@@ -624,7 +610,7 @@
       "interviewRating": 90
     },
     {
-      "id": 14,
+      "id": "14",
       "firstName": "Liam",
       "lastName": "Martinez",
       "email": "liam.martinez@example.com",
@@ -638,7 +624,7 @@
       "interviewRating": 60
     },
     {
-      "id": 15,
+      "id": "15",
       "firstName": "Megan",
       "lastName": "Nelson",
       "email": "megan.nelson@example.com",
@@ -652,7 +638,7 @@
       "interviewRating": null
     },
     {
-      "id": 16,
+      "id": "16",
       "firstName": "Nathan",
       "lastName": "Owens",
       "email": "nathan.owens@example.com",
@@ -666,7 +652,7 @@
       "interviewRating": 92
     },
     {
-      "id": 17,
+      "id": "17",
       "firstName": "Olivia",
       "lastName": "Perez",
       "email": "olivia.perez@example.com",
@@ -674,15 +660,15 @@
       "jobPosition": "Project Manager",
       "departmentId": 6,
       "dateApplied": "2024-08-29",
-      "status": "Rejected",
-      "stage": "Final Interview",
-      "testRating": 65,
-      "interviewRating": 70
+      "status": "Pending",
+      "stage": "",
+      "testRating": null,
+      "interviewRating": null
     },
     {
-      "id": 333,
-      "firstName": "John",
-      "lastName": "Doe",
+      "id": "18",
+      "firstName": "ddb",
+      "lastName": "sss",
       "email": "john.doe@example.com",
       "coverLetter": "I am very interested in the position.",
       "jobPosition": "Software Engineer",
@@ -694,9 +680,9 @@
       "interviewRating": null
     },
     {
-      "id": 1,
-      "firstName": "John",
-      "lastName": "Doe",
+      "id": "19",
+      "firstName": "Ali",
+      "lastName": "Nacisr",
       "email": "john.doe@example.com",
       "coverLetter": "I am eager to contribute.",
       "jobPosition": "Software Developer",
@@ -708,7 +694,7 @@
       "interviewRating": 90
     },
     {
-      "id": 2,
+      "id": "20",
       "firstName": "Jane",
       "lastName": "Smith",
       "email": "jane.smith@example.com",
@@ -716,13 +702,13 @@
       "jobPosition": "Marketing Specialist",
       "departmentId": 2,
       "dateApplied": "2024-02-20",
-      "status": "Rejected",
-      "stage": "Test",
-      "testRating": 70,
+      "status": "Pending",
+      "stage": "",
+      "testRating": null,
       "interviewRating": null
     },
     {
-      "id": 3,
+      "id": "21",
       "firstName": "Alice",
       "lastName": "Brown",
       "email": "alice.brown@example.com",
@@ -731,12 +717,12 @@
       "departmentId": 2,
       "dateApplied": "2024-03-10",
       "status": "Pending",
-      "stage": "Applied",
+      "stage": "",
       "testRating": null,
       "interviewRating": null
     },
     {
-      "id": 4,
+      "id": "22",
       "firstName": "Michael",
       "lastName": "Johnson",
       "email": "michael.johnson@example.com",
@@ -750,7 +736,7 @@
       "interviewRating": 92
     },
     {
-      "id": 5,
+      "id": "23",
       "firstName": "Emily",
       "lastName": "Davis",
       "email": "emily.davis@example.com",
@@ -764,7 +750,7 @@
       "interviewRating": 85
     },
     {
-      "id": 6,
+      "id": "24",
       "firstName": "Chris",
       "lastName": "Lee",
       "email": "chris.lee@example.com",
@@ -778,7 +764,7 @@
       "interviewRating": 70
     },
     {
-      "id": 7,
+      "id": "25",
       "firstName": "David",
       "lastName": "Martinez",
       "email": "david.martinez@example.com",
@@ -792,7 +778,7 @@
       "interviewRating": null
     },
     {
-      "id": 8,
+      "id": "26",
       "firstName": "Sophia",
       "lastName": "Wilson",
       "email": "sophia.wilson@example.com",
@@ -806,7 +792,7 @@
       "interviewRating": 95
     },
     {
-      "id": 9,
+      "id": "27",
       "firstName": "Olivia",
       "lastName": "Taylor",
       "email": "olivia.taylor@example.com",
@@ -820,8 +806,8 @@
       "interviewRating": 80
     },
     {
-      "id": 2323,
-      "firstName": "Jane",
+      "id": "28",
+      "firstName": "Janq",
       "lastName": "Smith",
       "email": "jane.smith@example.com",
       "coverLetter": "I have experience in this field.",
@@ -834,7 +820,7 @@
       "interviewRating": null
     },
     {
-      "id": "a952",
+      "id": "29",
       "firstName": "a",
       "lastName": "a",
       "email": "a@df.com",
@@ -845,11 +831,13 @@
       "additionalDocument": {},
       "jobPosition": "",
       "departmentId": "2",
-      "status": "Pending",
-      "dateApplied": "2024-08-07"
+      "status": "Rejected",
+      "dateApplied": "2024-08-07",
+      "stage": "Rejected",
+      "dateProcessed": "2024-08-11T12:10:27.851Z"
     },
     {
-      "id": "593f",
+      "id": "30",
       "firstName": "a",
       "lastName": "aa",
       "email": "a@a.com",
@@ -860,11 +848,15 @@
       "additionalDocument": {},
       "jobPosition": "",
       "departmentId": "2",
-      "status": "Pending",
-      "dateApplied": "2024-08-08"
+      "status": "Accepted",
+      "dateApplied": "2024-08-08",
+      "stage": "UnderReview",
+      "testRating": null,
+      "interviewRating": null,
+      "dateProcessed": "2024-08-11T12:10:16.809Z"
     },
     {
-      "id": "13e6",
+      "id": "31",
       "firstName": "woow",
       "lastName": "woow",
       "email": "yyy@gmail.com",
