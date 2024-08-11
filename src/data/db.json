@@ -435,9 +435,10 @@
       "departmentId": 1,
       "dateApplied": "2024-01-15",
       "status": "Accepted",
-      "stage": "Interview",
-      "testRating": 85,
-      "interviewRating": 90
+      "stage": "UnderReview",
+      "testRating": null,
+      "interviewRating": null,
+      "dateProcessed": "2024-08-11T14:30:28.647Z"
     },
     {
       "id": "2",
@@ -448,18 +449,18 @@
       "jobPosition": "Marketing Specialist",
       "departmentId": 2,
       "dateApplied": "2024-02-12",
-      "status": "Pending",
-      "stage": null,
+      "status": "Accepted",
+      "stage": "UnderReview",
       "testRating": null,
       "interviewRating": null,
-      "dateProcessed": null
+      "dateProcessed": "2024-08-11T14:58:40.493Z"
     },
     {
       "id": "3",
       "firstName": "Alice",
       "lastName": "Johnson",
       "email": "alice.johnson@example.com",
-      "coverLetter": "I'm passionate about marketing.",
+      "coverLetter": "Dear Hiring Manager,\n\nI am writing to express my interest in the [Job Title] position at IE Network, as advertised [mention where you found the job listing]. With a background in [relevant field or industry], I am excited about the opportunity to contribute to your team and bring my skills in [mention key skills related to the job] to IE Network.\n\nThroughout my career, I have demonstrated a strong ability to [mention specific achievements or experiences that are relevant to the role]. At [Previous Company], I [briefly describe a relevant project or achievement that highlights your qualifications]. This experience has equipped me with a solid foundation in [mention skills or knowledge relevant to the job], and I am eager to leverage these skills at IE Network.\n\nI am particularly drawn to IE Network because of [mention something specific about the company that you admire or that aligns with your career goals]. I am impressed by [mention a particular aspect of the company's work, culture, or achievements] and am enthusiastic about the prospect of contributing to [mention a specific project, goal, or mission of the company].\n\nEnclosed is my resume, which provides additional details about my professional journey. I would welcome the opportunity to discuss how my background, skills, and enthusiasms align with the needs of your team. Thank you for considering my application. I look forward to the possibility of contributing to IE Network and am available for an interview at your earliest convenience.\n\nSincerely,\n\nJohn Doe",
       "jobPosition": "Marketing Specialist",
       "departmentId": 2,
       "dateApplied": "2024-03-08",

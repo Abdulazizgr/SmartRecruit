@@ -7,6 +7,9 @@ export default {
   ],
   theme: {
     extend: {
+      whiteSpace: {
+        'pre-wrap': 'pre-wrap',
+      },
       colors: {
         palette: {
           500:'#EBF4F6',
