@@ -1,4 +1,5 @@
-import React, { useRef } from 'react';
+import React
+, { useRef } from 'react';
 import {
   ChatBubbleOutlineOutlined,
   DarkModeOutlined,
@@ -9,14 +10,11 @@ import {
   Search,
 } from '@mui/icons-material';
 import IElogo from '../../../public/assets/IElogo.png';
-
-const Navbar = () => {
+const Navbar = ({ searchTerm, setSearchTerm }) => { // Add props for search
   const inputRef = useRef(null);
-
   const handleSearchIconClick = () => {
     inputRef.current.focus();
   };
-
   return (
     <div className='flex items-center text-sm text-[#555] border-b-[0.5px] border-[rgba(231,229,228)] border-solid'>
       <div className='w-full flex items-center justify-between p-5'>
@@ -25,6 +23,8 @@ const Navbar = () => {
             ref={inputRef}
             className="h-[30px] border-none outline-none w-[0px] sm:w-11 bg-transparent relative z-10 transition-all duration-300 focus:border focus:border-gray-200 focus:w-80 focus:rounded-md focus:pl-3"
             type="text"
+            value={searchTerm} // Bind input value to searchTerm
+            onChange={(e) => setSearchTerm(e.target.value)} // Update searchTerm on input change
           />
           <Search onClick={handleSearchIconClick} className="cursor-pointer" />
         </div>
