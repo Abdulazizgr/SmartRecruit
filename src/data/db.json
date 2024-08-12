@@ -2,7 +2,7 @@
   "jobs": [
     {
       "id": "9225",
-      "title": "Network Engineer",
+      "title": "Netwrok Engineer",
       "department": "Network Operations",
       "location": "United States",
       "description": "Seeking a skilled Network Engineer to maintain and improve our company's network infrastructure.",
@@ -148,7 +148,7 @@
       ],
       "type": "Part-time",
       "status": "Accepted",
-      "deadline": "2024-08-22T21:00:00.000Z",
+      "deadline": "2024-08-20T21:00:00.000Z",
       "posted": true,
       "teamLeadId": 2,
       "departmentId": 2
@@ -435,10 +435,13 @@
       "departmentId": 1,
       "dateApplied": "2024-01-15",
       "status": "Accepted",
-      "stage": "UnderReview",
-      "testRating": null,
-      "interviewRating": null,
-      "dateProcessed": "2024-08-11T14:30:28.647Z"
+      "stage": "Interview",
+      "testRating": 20,
+      "interviewRating": 56,
+      "dateProcessed": "2024-08-12T09:41:18.358Z",
+      "score": "40",
+      "totalScore": 76,
+      "candidateStatus": "Passed"
     },
     {
       "id": "2",
@@ -450,10 +453,12 @@
       "departmentId": 2,
       "dateApplied": "2024-02-12",
       "status": "Accepted",
-      "stage": "UnderReview",
-      "testRating": null,
-      "interviewRating": null,
-      "dateProcessed": "2024-08-11T14:58:40.493Z"
+      "stage": "Test",
+      "testRating": 30,
+      "interviewRating": 0,
+      "dateProcessed": "2024-08-12T11:07:48.690Z",
+      "totalScore": 30,
+      "candidateStatus": "Failed"
     },
     {
       "id": "3",
@@ -464,11 +469,14 @@
       "jobPosition": "Marketing Specialist",
       "departmentId": 2,
       "dateApplied": "2024-03-08",
-      "status": "Rejected",
-      "stage": "Rejected",
+      "status": "Accepted",
+      "stage": "UnderReview",
       "testRating": null,
       "interviewRating": null,
-      "dateProcessed": "2024-08-11T13:06:02.010Z"
+      "dateProcessed": "2024-08-12T11:23:43.095Z",
+      "score": "50",
+      "totalScore": 0,
+      "candidateStatus": "Passed"
     },
     {
       "id": "4",
@@ -480,9 +488,12 @@
       "departmentId": 1,
       "dateApplied": "2024-04-17",
       "status": "Accepted",
-      "stage": "Interview",
-      "testRating": 88,
-      "interviewRating": 92
+      "stage": "Test",
+      "testRating": 45,
+      "interviewRating": 48,
+      "dateProcessed": "2024-08-12T11:23:43.888Z",
+      "totalScore": 93,
+      "candidateStatus": "Passed"
     },
     {
       "id": "5",
@@ -507,10 +518,11 @@
       "jobPosition": "Cloud Engineer",
       "departmentId": 4,
       "dateApplied": "2024-06-30",
-      "status": "Pending",
-      "stage": "Technical Test",
-      "testRating": 80,
-      "interviewRating": null
+      "status": "Rejected",
+      "stage": "Rejected",
+      "testRating": null,
+      "interviewRating": null,
+      "dateProcessed": "2024-08-12T09:27:21.423Z"
     },
     {
       "id": "7",
@@ -521,10 +533,11 @@
       "jobPosition": "Data Scientist",
       "departmentId": 5,
       "dateApplied": "2024-07-11",
-      "status": "Accepted",
-      "stage": "Technical Test",
-      "testRating": 95,
-      "interviewRating": 85
+      "status": "Rejected",
+      "stage": "Rejected",
+      "testRating": null,
+      "interviewRating": null,
+      "dateProcessed": "2024-08-12T09:27:22.789Z"
     },
     {
       "id": "8",
@@ -563,10 +576,13 @@
       "jobPosition": "Software Engineer",
       "departmentId": 1,
       "dateApplied": "2024-01-19",
-      "status": "Accepted",
+      "status": "Rejected",
       "stage": "Interview",
-      "testRating": 90,
-      "interviewRating": 88
+      "testRating": 50,
+      "interviewRating": 24,
+      "dateProcessed": "2024-08-12T09:27:38.231Z",
+      "score": "24",
+      "totalScore": 74
     },
     {
       "id": "11",
@@ -577,10 +593,11 @@
       "jobPosition": "Marketing Specialist",
       "departmentId": 2,
       "dateApplied": "2024-02-25",
-      "status": "Rejected",
-      "stage": "Screening",
-      "testRating": 65,
-      "interviewRating": 70
+      "status": "Accepted",
+      "stage": "UnderReview",
+      "testRating": null,
+      "interviewRating": null,
+      "dateProcessed": "2024-08-12T09:27:39.651Z"
     },
     {
       "id": "12",
@@ -605,10 +622,11 @@
       "jobPosition": "Project Manager",
       "departmentId": 6,
       "dateApplied": "2024-04-22",
-      "status": "Accepted",
-      "stage": "Final Interview",
+      "status": "Rejected",
+      "stage": "Rejected",
       "testRating": null,
-      "interviewRating": 90
+      "interviewRating": null,
+      "dateProcessed": "2024-08-12T09:27:27.498Z"
     },
     {
       "id": "14",
@@ -647,10 +665,11 @@
       "jobPosition": "Software Engineer",
       "departmentId": 1,
       "dateApplied": "2024-07-16",
-      "status": "Accepted",
-      "stage": "Final Interview",
-      "testRating": 88,
-      "interviewRating": 92
+      "status": "Rejected",
+      "stage": "Rejected",
+      "testRating": null,
+      "interviewRating": null,
+      "dateProcessed": "2024-08-12T09:27:26.523Z"
     },
     {
       "id": "17",
@@ -689,10 +708,11 @@
       "jobPosition": "Software Developer",
       "departmentId": 1,
       "dateApplied": "2024-01-15",
-      "status": "Accepted",
-      "stage": "Interview",
-      "testRating": 85,
-      "interviewRating": 90
+      "status": "Rejected",
+      "stage": "Rejected",
+      "testRating": null,
+      "interviewRating": null,
+      "dateProcessed": "2024-08-12T09:23:36.237Z"
     },
     {
       "id": "20",
@@ -731,10 +751,11 @@
       "jobPosition": "Cloud Engineer",
       "departmentId": 3,
       "dateApplied": "2024-04-05",
-      "status": "Accepted",
-      "stage": "Interview",
-      "testRating": 88,
-      "interviewRating": 92
+      "status": "Rejected",
+      "stage": "Rejected",
+      "testRating": null,
+      "interviewRating": null,
+      "dateProcessed": "2024-08-12T09:23:32.755Z"
     },
     {
       "id": "23",
@@ -745,10 +766,11 @@
       "jobPosition": "Project Manager",
       "departmentId": 4,
       "dateApplied": "2024-05-12",
-      "status": "Accepted",
-      "stage": "Interview",
-      "testRating": 80,
-      "interviewRating": 85
+      "status": "Rejected",
+      "stage": "Rejected",
+      "testRating": null,
+      "interviewRating": null,
+      "dateProcessed": "2024-08-12T09:23:32.180Z"
     },
     {
       "id": "24",
@@ -787,10 +809,11 @@
       "jobPosition": "Backend Developer",
       "departmentId": 1,
       "dateApplied": "2024-08-18",
-      "status": "Accepted",
-      "stage": "Interview",
-      "testRating": 90,
-      "interviewRating": 95
+      "status": "Rejected",
+      "stage": "Rejected",
+      "testRating": null,
+      "interviewRating": null,
+      "dateProcessed": "2024-08-12T09:23:10.267Z"
     },
     {
       "id": "27",
@@ -849,12 +872,12 @@
       "additionalDocument": {},
       "jobPosition": "",
       "departmentId": "2",
-      "status": "Accepted",
+      "status": "Rejected",
       "dateApplied": "2024-08-08",
-      "stage": "UnderReview",
+      "stage": "Rejected",
       "testRating": null,
       "interviewRating": null,
-      "dateProcessed": "2024-08-11T12:10:16.809Z"
+      "dateProcessed": "2024-08-12T09:23:09.618Z"
     },
     {
       "id": "31",
