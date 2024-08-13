@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Dashboard as DashboardIcon,
   SettingsAccessibility as SettingsAccessibilityIcon,
@@ -11,21 +11,49 @@ import {
   AccountCircle as ProfileIcon,
   Logout as LogoutIcon,
   CalendarToday as CalendarTodayIcon,
-
-  Assessment as ReportIcon, // Use ReportIcon for 'Reports'
+  Assessment as ReportIcon,
   KeyboardDoubleArrowRight as MenuIcon,
-  // Import a suitable icon for Candidates
-  Group as CandidatesIcon, // Example: use GroupIcon for candidates
+  ExpandMore as ExpandMoreIcon, // Arrow down
+  ExpandLess as ExpandLessIcon, // Arrow up
+  Group as CandidatesIcon,
+  Analytics as JobsReportIcon, // New icon for Jobs Report
+  ListAlt as ApplicantsReportIcon, // New icon for Applicants Report
+  Person as EmployeeReportIcon // New icon for Employee Reports
 } from '@mui/icons-material';
-import GroupsIcon from '@mui/icons-material/Groups';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
+  const [isReportOpen, setIsReportOpen] = useState(false);
+  const [activeSubmenu, setActiveSubmenu] = useState('');
+  const location = useLocation();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
+
+  const toggleReportSubmenu = () => {
+    setIsReportOpen(!isReportOpen);
+  };
+
+  const handleSubmenuClick = (submenu) => {
+    setActiveSubmenu(submenu);
+    setIsReportOpen(true); // Open the submenu when clicked
+  };
+
+  useEffect(() => {
+    // Determine which submenu to open based on the current route
+    const path = location.pathname;
+    if (path.includes('/dashboard_2/reports')) {
+      setIsReportOpen(true);
+      if (path.includes('jobs')) setActiveSubmenu('jobs');
+      else if (path.includes('applicants')) setActiveSubmenu('applicants');
+      else if (path.includes('employees')) setActiveSubmenu('employees');
+    } else {
+      setIsReportOpen(false);
+      setActiveSubmenu('');
+    }
+  }, [location]);
 
   return (
     <div
@@ -100,7 +128,7 @@ const Sidebar = () => {
           />
           <NavItem
             to="/dashboard_2/employees"
-            icon={<GroupsIcon className="text-lg text-accent mr-1" />}
+            icon={<CandidatesIcon className="text-lg text-accent mr-1" />}
             label="Employees"
             isOpen={isOpen}
           />
@@ -112,7 +140,7 @@ const Sidebar = () => {
           />
           <NavItem
             to="/dashboard_2/candidates"
-            icon={<CandidatesIcon className="text-lg text-accent mr-1" />} // Updated icon for candidates
+            icon={<CandidatesIcon className="text-lg text-accent mr-1" />}
             label="Candidates"
             isOpen={isOpen}
           />
@@ -128,12 +156,49 @@ const Sidebar = () => {
             label="Notification"
             isOpen={isOpen}
           />
-          <NavItem
-            to="/dashboard_2/report"
-            icon={<ReportIcon className="text-lg text-accent mr-1" />}
-            label="Report"
-            isOpen={isOpen}
-          />
+          <li>
+            <div
+              className={`flex items-center cursor-pointer p-2 rounded-lg mr-3 mb-1 transition-colors duration-300 ${
+                isReportOpen || !isOpen ? 'bg-blue-200' : 'hover:bg-blue-100'
+              }`}
+              onClick={toggleReportSubmenu}
+            >
+              <ReportIcon className="text-lg text-accent mr-1" />
+              {isOpen && (
+                <span className="text-sm text-primary">Reports</span>
+              )}
+              {isOpen && (
+                <div className="ml-auto">
+                  {isReportOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                </div>
+              )}
+            </div>
+            {(isReportOpen && isOpen) && (
+              <ul className="pl-4">
+                <NavSubItem
+                  to="/dashboard_2/reports/jobs"
+                  icon={<JobsReportIcon className="text-sm text-accent mr-1" />}
+                  label="Jobs Report"
+                  isActive={activeSubmenu === 'jobs'}
+                  onClick={() => handleSubmenuClick('jobs')}
+                />
+                <NavSubItem
+                  to="/dashboard_2/reports/applicants"
+                  icon={<ApplicantsReportIcon className="text-sm text-accent mr-1" />}
+                  label="Applicants Report"
+                  isActive={activeSubmenu === 'applicants'}
+                  onClick={() => handleSubmenuClick('applicants')}
+                />
+                <NavSubItem
+                  to="/dashboard_2/reports/employees"
+                  icon={<EmployeeReportIcon className="text-sm text-accent mr-1" />}
+                  label="Employee Reports"
+                  isActive={activeSubmenu === 'employees'}
+                  onClick={() => handleSubmenuClick('employees')}
+                />
+              </ul>
+            )}
+          </li>
           <p
             className={`text-xs font-bold text-gray-500 ${
               isOpen ? 'mt-4 mb-2.5' : 'mt-4 mb-1'
@@ -182,7 +247,24 @@ const NavItem = ({ to, icon, label, isOpen }) => (
         </span>
       )}
     </NavLink>
-  </li>
-);
+  </li>)
+  const NavSubItem = ({ to, icon, label, isActive, onClick }) => (
+    <li>
+      <NavLink
+        to={to}
+        className={`flex items-center cursor-pointer p-2 rounded-lg mb-1 transition-colors duration-300 ${
+          isActive ? 'text-blue-600 font-bold hover:bg-blue-100' : 'hover:bg-blue-100'
+        }`}
+        onClick={onClick}
+      > 
+        {icon}
 
-export default Sidebar;
+        <span className={` ${isActive ? 'text-blue-800 font-bold text-[0.9rem]' : 'text-primary text-sm'}`}>
+          {label}
+        </span>
+      </NavLink>
+    </li>
+  );
+  
+  export default Sidebar;
+  
