@@ -11,7 +11,7 @@ const Applicants = () => {
       <Sidebar />
       <div className="flex-[6]">
         <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} /> {/* Pass props */}
-        <div className="p-4 flex flex-col lg:flex-row">
+        <div className="p-4 flex flex-col lg:flex-row bg-gray-300">
           <div className="flex-1 lg:mr-4 h-full">
             <ApplicantsTable searchTerm={searchTerm} /> {/* Pass searchTerm */}
           </div>
