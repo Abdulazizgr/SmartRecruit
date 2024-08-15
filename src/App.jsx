@@ -25,6 +25,7 @@ import Applicants from './pages/experimental/Control/Applicants';
 import Candidates from './pages/experimental/Control/Candidates';
 import Departments from './pages/experimental/Control/Departments';
 import JobsReports from './pages/experimental/Control/Reports/JobsReports';
+import ApplicantsReport from './pages/experimental/Control/Reports/ApplicantsReport';
 
 const App = () => {
   return (
@@ -81,6 +82,7 @@ const App = () => {
           <Route path="/dashboard_2/report" element={ <Report /> } />
           <Route path="/dashboard_2/departments" element={ <Departments /> } />
           <Route path="/dashboard_2/reports/jobs" element={ <JobsReports /> } />
+          <Route path="/dashboard_2/reports/applicants" element={ <ApplicantsReport /> } />
         </Routes>
       </Router>
     </AuthProvider>
