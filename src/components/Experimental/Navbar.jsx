@@ -1,5 +1,4 @@
-import React
-, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   ChatBubbleOutlineOutlined,
   DarkModeOutlined,
@@ -10,11 +9,24 @@ import {
   Search,
 } from '@mui/icons-material';
 import IElogo from '../../../public/assets/IElogo.png';
-const Navbar = ({ searchTerm, setSearchTerm }) => { // Add props for search
+
+const Navbar = ({ searchTerm, setSearchTerm }) => {
   const inputRef = useRef(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
   const handleSearchIconClick = () => {
     inputRef.current.focus();
   };
+
+  const handleFullscreenToggle = () => {
+    if (!isFullscreen) {
+      document.documentElement.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+    setIsFullscreen(!isFullscreen);
+  };
+
   return (
     <div className='flex items-center text-sm text-[#555] border-b-[0.5px] border-[rgba(231,229,228)] border-solid'>
       <div className='w-full flex items-center justify-between p-5'>
@@ -23,8 +35,8 @@ const Navbar = ({ searchTerm, setSearchTerm }) => { // Add props for search
             ref={inputRef}
             className="h-[30px] border-none outline-none w-[0px] sm:w-11 bg-transparent relative z-10 transition-all duration-300 focus:border focus:border-gray-200 focus:w-80 focus:rounded-md focus:pl-3"
             type="text"
-            value={searchTerm} // Bind input value to searchTerm
-            onChange={(e) => setSearchTerm(e.target.value)} // Update searchTerm on input change
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
           <Search onClick={handleSearchIconClick} className="cursor-pointer" />
         </div>
@@ -37,7 +49,12 @@ const Navbar = ({ searchTerm, setSearchTerm }) => { // Add props for search
             <DarkModeOutlined className='text-xl' />
           </div>
           <div className="flex items-center relative mr-5">
-            <FullscreenExitOutlined className='text-xl' />
+            <FullscreenExitOutlined
+              className={`text-xl cursor-pointer transition-transform ${
+                isFullscreen ? 'animate-zoomOutSpin' : 'animate-zoomInSpin'
+              }`}
+              onClick={handleFullscreenToggle}
+            />
           </div>
           <div className="flex items-center relative mr-5">
             <NotificationsNoneOutlined className='text-xl' />
