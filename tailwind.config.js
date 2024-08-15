@@ -8,6 +8,29 @@ export default {
   ],
   theme: {
     extend: {
+      keyframes: {
+        zoomInSpin: {
+          '0%': { transform: 'rotate(0deg) scale(1)' },
+          '100%': { transform: 'rotate(360deg) scale(1.5)' },
+        },
+        zoomOutSpin: {
+          '0%': { transform: 'rotate(360deg) scale(1.5)' },
+          '100%': { transform: 'rotate(0deg) scale(1)' },},
+          fadeIn: {
+            '0%': { opacity: 0 },
+            '100%': { opacity: 1 },
+          },
+          fadeOut: {
+            '0%': { opacity: 1 },
+            '100%': { opacity: 0 },
+        },
+      },
+      animation: {
+        zoomInSpin: 'zoomInSpin 0.5s ease-in-out',
+        zoomOutSpin: 'zoomOutSpin 0.5s ease-in-out',
+        fadeIn: 'fadeIn 0.5s ease-out forwards',
+        fadeOut: 'fadeOut 0.5s ease-in forwards',
+      },
       whiteSpace: {
         'pre-wrap': 'pre-wrap',
       },
