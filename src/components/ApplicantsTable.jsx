@@ -1,14 +1,126 @@
 import React, { useEffect, useState } from 'react';
-import { DataGrid } from '@mui/x-data-grid';
+import { styled } from '@mui/material/styles';
+import {
+  DataGrid,
+  gridPageCountSelector,
+  gridPageSelector,
+  useGridApiContext,
+  useGridSelector,
+  GridToolbarExport,
+  GridToolbarContainer,
+} from '@mui/x-data-grid';
 import axios from 'axios';
+import Pagination from '@mui/material/Pagination';
+import PaginationItem from '@mui/material/PaginationItem';
 
+// Custom StyledDataGrid
+const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
+  border: 0,
+  color:
+    theme.palette.mode === 'light'
+      ? 'rgba(0,0,0,.85)'
+      : 'rgba(255,255,255,0.85)',
+  fontFamily: [
+    '-apple-system',
+    'BlinkMacSystemFont',
+    '"Segoe UI"',
+    'Roboto',
+    '"Helvetica Neue"',
+    'Arial',
+    'sans-serif',
+    '"Apple Color Emoji"',
+    '"Segoe UI Emoji"',
+    '"Segoe UI Symbol"',
+  ].join(','),
+  WebkitFontSmoothing: 'auto',
+  letterSpacing: 'normal',
+  '& .MuiDataGrid-columnsContainer': {
+    backgroundColor: theme.palette.mode === 'light' ? '#fafafa' : '#1d1d1d',
+  },
+  '& .MuiDataGrid-iconSeparator': {
+    display: 'none',
+  },
+  '& .MuiDataGrid-columnHeader, .MuiDataGrid-cell': {
+    borderRight: `1px solid ${
+      theme.palette.mode === 'light' ? '#f0f0f0' : '#303030'
+    }`,
+  },
+  '& .MuiDataGrid-columnsContainer, .MuiDataGrid-cell': {
+    borderBottom: `1px solid ${
+      theme.palette.mode === 'light' ? '#f0f0f0' : '#303030'
+    }`,
+  },
+  '& .MuiDataGrid-cell': {
+    color:
+      theme.palette.mode === 'light'
+        ? 'rgba(0,0,0,.85)'
+        : 'rgba(255,255,255,0.65)',
+  },
+  '& .MuiPaginationItem-root': {
+    borderRadius: 0,
+  },
+}));
+
+// Custom Pagination component
+const CustomPagination = () => {
+  const apiRef = useGridApiContext();
+  const page = useGridSelector(apiRef, gridPageSelector);
+  const pageCount = useGridSelector(apiRef, gridPageCountSelector);
+  return (
+    <Pagination
+      color="primary"
+      variant="outlined"
+      shape="rounded"
+      page={page + 1}
+      count={pageCount}
+      renderItem={(props) => <PaginationItem {...props} disableRipple />}
+      onChange={(event, value) => apiRef.current.setPage(value - 1)}
+    />
+  );
+};
+
+const CustomToolbar = () => {
+  return (
+    <GridToolbarContainer style={{ justifyContent: 'flex-start', backgroundColor: '#f0f4ff' }}>
+      <GridToolbarExport style={{ color: 'blue' }} /> {/* Custom color and position */}
+    </GridToolbarContainer>
+  );
+};
 const ApplicantsTable = ({ searchTerm }) => {
   const [data, setData] = useState([]);
   const [selectedApplicant, setSelectedApplicant] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [fullCoverLetterModalOpen, setFullCoverLetterModalOpen] =
     useState(false);
-
+    const [paginationModel, setPaginationModel] = useState({
+      pageSize: 5,
+      page: 0,
+    });
+    const [gridHeight, setGridHeight] = useState('auto');
+    const [loading, setLoading] = useState(false);
+  
+    useEffect(() => {
+      if (loading) {
+        // Calculate the height based on the number of rows (pageSize)
+        const rowHeight = 52; // Approximate height of each row in pixels
+        const headerHeight = 56; // Height of the header
+        const toolbarHeight = 56; // Height of the toolbar (if using one)
+        const totalHeight = headerHeight + toolbarHeight + rowHeight * paginationModel.pageSize +40;
+  
+        // Set the calculated height
+        setGridHeight(`${totalHeight}px`);
+  
+        // Stop loading after a short delay
+        setTimeout(() => {
+          setLoading(false);
+        }, 100); // Adjust delay as needed
+      }
+    }, [loading, paginationModel.pageSize]);
+  
+    const handlePaginationModelChange = (newPaginationModel) => {
+      setLoading(true); // Trigger loading state
+      setPaginationModel(newPaginationModel); // Update pagination model
+    };
   useEffect(() => {
     fetchData();
   }, []);
@@ -132,14 +244,14 @@ const ApplicantsTable = ({ searchTerm }) => {
   };
 
   const columns = [
-    { field: 'id', headerName: 'ID', width: 100, sortable: false },
-    { field: 'firstName', headerName: 'First Name', width: 150 },
-    { field: 'lastName', headerName: 'Last Name', width: 150 },
-    { field: 'jobPosition', headerName: 'Job Position', width: 200 },
-    { field: 'dateApplied', headerName: 'Date Applied', width: 150 },
+    { field: 'id', headerName:<strong className='text-base'>ID</strong> , width: 100, sortable: false },
+    { field: 'firstName', headerName:<strong className='text-base'>First Name</strong> , width: 150 },
+    { field: 'lastName', headerName:<strong className='text-base'>Last Name</strong> , width: 150 },
+    { field: 'jobPosition', headerName:<strong className='text-base'>Job Position</strong> , width: 200 },
+    { field: 'dateApplied', headerName:<strong className='text-base'>Date Applied</strong> , width: 150 },
     {
       field: 'status',
-      headerName: 'Status',
+      headerName: <strong className='text-base'>Status</strong>,
       width: 150,
       renderCell: (params) => {
         let statusColor = 'text-gray-600';
@@ -153,7 +265,7 @@ const ApplicantsTable = ({ searchTerm }) => {
     },
     {
       field: 'action',
-      headerName: 'Action',
+      headerName: <strong className='text-base'>Action</strong>,
       width: 350,
       renderCell: (params) => (
         <div className="flex items-center gap-2">
@@ -190,17 +302,46 @@ const ApplicantsTable = ({ searchTerm }) => {
   ];
 
   return (
-    <div className="relative w-full h-[500px] bg-white border border-gray-200 rounded-lg shadow overflow-y-auto">
-      <DataGrid
-        rows={filteredData}
-        columns={columns}
-        pageSize={15}
-        rowsPerPageOptions={[15]}
-        pagination
-        disableSelectionOnClick
-        autoHeight={false}
-      />
-
+    <div className="relative w-min bg-white border border-gray-200 rounded-lg shadow overflow-y-auto">
+    {loading ? (
+      <div className="flex justify-center items-center h-full">
+        <div className="animate-spin text-blue-500">
+          <svg
+            className="w-8 h-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              className="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              strokeWidth="4"
+            ></circle>
+            <path
+              className="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+            ></path>
+          </svg>
+        </div>
+      </div>
+    ) : (
+    <StyledDataGrid
+    rows={filteredData}
+    columns={columns}
+    paginationModel={paginationModel}
+    onPaginationModelChange={handlePaginationModelChange}
+    pageSizeOptions={[5, 10, 25]}
+    components={{
+      Pagination: CustomPagination,
+    }}
+    style={{ fontSize: 16, width: '100%' }}
+    slots={{ toolbar: CustomToolbar}}
+  />
+)}
       {modalOpen && selectedApplicant && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg w-1/2 max-w-3xl relative">
