@@ -26,6 +26,7 @@ import Candidates from './pages/experimental/Control/Candidates';
 import Departments from './pages/experimental/Control/Departments';
 import JobsReports from './pages/experimental/Control/Reports/JobsReports';
 import ApplicantsReport from './pages/experimental/Control/Reports/ApplicantsReport';
+import UnderConstruction from './pages/HR/UnderConstruction';
 
 const App = () => {
   return (
@@ -92,6 +93,13 @@ const App = () => {
           <Route path="/dashboard_2/departments" element={ <Departments /> } />
           <Route path="/dashboard_2/reports/jobs" element={ <JobsReports /> } />
           <Route path="/dashboard_2/reports/applicants" element={ <ApplicantsReport /> } />
+          <Route path="/dashboard_2/reports/employees" element={ <UnderConstruction /> } />
+          <Route path="/dashboard_2/notifications" element={ <UnderConstruction /> } />
+          <Route path="/dashboard_2/attendance" element={ <UnderConstruction /> } />
+          <Route path="/dashboard_2/employees" element={ <UnderConstruction /> } />
+          <Route path="/dashboard_2/attendance" element={ <UnderConstruction /> } />
+          <Route path="/dashboard_2/settings" element={ <UnderConstruction /> } />
+          <Route path="/dashboard_2/profile" element={ <UnderConstruction /> } />
         </Routes>
       </Router>
     </AuthProvider>
