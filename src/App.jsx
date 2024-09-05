@@ -63,6 +63,14 @@ const App = () => {
             }
           />
           <Route
+            path="/dashboard_2"
+            element={
+              <ProtectedRoute>
+                <Dashboard2 />
+              </ProtectedRoute>
+            }
+          />
+          <Route
             path="/manager-page"
             element={
               <ProtectedRoute>
@@ -73,6 +81,7 @@ const App = () => {
           <Route path="/" element={<Homepage />} />
           
           {/* Jaefer Experimental version */}
+          
           <Route path="/dashboard_2" element={<Dashboard2 />} />
           <Route path="/dashboard_2/home" element={<Dashboard2 />} />
           <Route path="/dashboard_2/calendar" element={<Calendar />} />
