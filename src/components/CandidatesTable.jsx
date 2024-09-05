@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { DataGrid } from '@mui/x-data-grid';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import { DataGrid } from "@mui/x-data-grid";
+import axios from "axios";
+import emailjs from "emailjs-com";
 
-const CandidatesTable = ({ searchTerm, filterStatus = 'Accepted' }) => {
+const CandidatesTable = ({ searchTerm, filterStatus = "Accepted" }) => {
   const [data, setData] = useState([]);
   const [selectedCandidate, setSelectedCandidate] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
-  const [stage, setStage] = useState('UnderReview');
-  const [testRating, setTestRating] = useState('');
-  const [interviewRating, setInterviewRating] = useState('');
+  const [stage, setStage] = useState("UnderReview");
+  const [testRating, setTestRating] = useState("");
+  const [interviewRating, setInterviewRating] = useState("");
   const [isTestRatingSaved, setIsTestRatingSaved] = useState(false);
 
   useEffect(() => {
@@ -17,79 +18,123 @@ const CandidatesTable = ({ searchTerm, filterStatus = 'Accepted' }) => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/applicants');
-      // Add totalScore field to each candidate
-      const updatedData = response.data.map(candidate => ({
+      const response = await axios.get("http://localhost:5000/applicants");
+      const updatedData = response.data.map((candidate) => ({
         ...candidate,
-        totalScore: (candidate.testRating || 0) + (candidate.interviewRating || 0),
+        totalScore:
+          (candidate.testRating || 0) + (candidate.interviewRating || 0),
       }));
       setData(updatedData);
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  const sendEmailNotification = async (candidate, newStage) => {
+    const templateParams = {
+      firstName: candidate.firstName,
+      lastName: candidate.lastName,
+      jobPosition: candidate.jobPosition,
+      email: candidate.email,
+      stage: newStage,
+    };
+
+    try {
+      await emailjs.send(
+        "service_s4zed2g", // Replace with your EmailJS service ID
+        "template_tedo1ee", // Replace with your EmailJS template ID
+        templateParams,
+        "HuPpKVMz2jtgnmTvO" // Replace with your EmailJS user ID
+      );
+    } catch (error) {
+      console.error("Error sending email:", error);
     }
   };
 
   const handleStageChange = (e) => {
     const newStage = e.target.value;
     setStage(newStage);
-    if (newStage === 'Interview' && !isTestRatingSaved) {
-      alert('Please enter and save a Test rating before selecting Interview stage.');
+    if (newStage === "Interview" && !isTestRatingSaved) {
+      alert(
+        "Please enter and save a Test rating before selecting Interview stage."
+      );
       return;
     }
   };
 
   const handleSave = async () => {
-    if (stage === 'Interview' && !isTestRatingSaved) {
-      alert('Test rating is required before saving Interview rating.');
+    if (stage === "Interview" && !isTestRatingSaved) {
+      alert("Test rating is required before saving Interview rating.");
       return;
     }
 
-    // Calculate totalScore based on ratings
     const calculatedTotalScore = Number(testRating) + Number(interviewRating);
-
-    // Update candidate data with the new stage and scores
-    const updatedCandidate = { 
-      ...selectedCandidate, 
-      stage, 
-      testRating: Number(testRating), 
-      interviewRating: Number(interviewRating), 
-      totalScore: calculatedTotalScore 
+    const updatedCandidate = {
+      ...selectedCandidate,
+      stage,
+      testRating: Number(testRating),
+      interviewRating: Number(interviewRating),
+      totalScore: calculatedTotalScore,
     };
+
     try {
-      await axios.put(`http://localhost:5000/applicants/${selectedCandidate.id}`, updatedCandidate);
-      // Update the local data state with the new candidate data
-      setData(data.map(item => item.id === selectedCandidate.id ? updatedCandidate : item));
+      await axios.put(
+        `http://localhost:5000/applicants/${selectedCandidate.id}`,
+        updatedCandidate
+      );
+      setData(
+        data.map((item) =>
+          item.id === selectedCandidate.id ? updatedCandidate : item
+        )
+      );
+      await sendEmailNotification(updatedCandidate, stage); // Send email notification
       closeModal();
     } catch (error) {
-      console.error('Error updating candidate:', error);
+      console.error("Error updating candidate:", error);
     }
   };
 
   const handlePass = async (candidateId) => {
     try {
-      const updatedCandidate = { ...data.find(cand => cand.id === candidateId), candidateStatus: 'Passed' };
-      await axios.put(`http://localhost:5000/applicants/${candidateId}`, updatedCandidate);
-      setData(data.map(item => item.id === candidateId ? updatedCandidate : item));
+      const updatedCandidate = {
+        ...data.find((cand) => cand.id === candidateId),
+        candidateStatus: "Passed",
+      };
+      await axios.put(
+        `http://localhost:5000/applicants/${candidateId}`,
+        updatedCandidate
+      );
+      setData(
+        data.map((item) => (item.id === candidateId ? updatedCandidate : item))
+      );
     } catch (error) {
-      console.error('Error updating candidate status to Passed:', error);
+      console.error("Error updating candidate status to Passed:", error);
     }
   };
 
   const handleFail = async (candidateId) => {
     try {
-      const updatedCandidate = { ...data.find(cand => cand.id === candidateId), candidateStatus: 'Failed' };
-      await axios.put(`http://localhost:5000/applicants/${candidateId}`, updatedCandidate);
-      setData(data.map(item => item.id === candidateId ? updatedCandidate : item));
+      const updatedCandidate = {
+        ...data.find((cand) => cand.id === candidateId),
+        candidateStatus: "Failed",
+      };
+      await axios.put(
+        `http://localhost:5000/applicants/${candidateId}`,
+        updatedCandidate
+      );
+      setData(
+        data.map((item) => (item.id === candidateId ? updatedCandidate : item))
+      );
     } catch (error) {
-      console.error('Error updating candidate status to Failed:', error);
+      console.error("Error updating candidate status to Failed:", error);
     }
   };
 
   const openModal = (candidate) => {
     setSelectedCandidate(candidate);
-    setStage(candidate.stage || 'UnderReview');
-    setTestRating(candidate.testRating || '');
-    setInterviewRating(candidate.interviewRating || '');
+    setStage(candidate.stage || "UnderReview");
+    setTestRating(candidate.testRating || "");
+    setInterviewRating(candidate.interviewRating || "");
     setIsTestRatingSaved(!!candidate.testRating);
     setModalOpen(true);
   };
@@ -97,75 +142,70 @@ const CandidatesTable = ({ searchTerm, filterStatus = 'Accepted' }) => {
   const closeModal = () => {
     setModalOpen(false);
     setSelectedCandidate(null);
-    setStage('UnderReview');
-    setTestRating('');
-    setInterviewRating('');
+    setStage("UnderReview");
+    setTestRating("");
+    setInterviewRating("");
     setIsTestRatingSaved(false);
   };
 
   const handleRatingChange = (setter) => (e) => {
     const value = e.target.value;
-    // Ensure value is a number between 0 and 50
-    if (value === '' || (Number(value) >= 0 && Number(value) <= 50)) {
+    if (value === "" || (Number(value) >= 0 && Number(value) <= 50)) {
       setter(value);
     }
   };
 
   const columns = [
-    { field: 'id', headerName: 'ID', width: 100, sortable: false },
-    { field: 'firstName', headerName: 'First Name', width: 150 },
-    { field: 'lastName', headerName: 'Last Name', width: 150 },
-    { field: 'jobPosition', headerName: 'Job Position', width: 200 },
-    { field: 'dateApplied', headerName: 'Date Applied', width: 150 },
+    { field: "id", headerName: "ID", width: 100, sortable: false },
+    { field: "firstName", headerName: "First Name", width: 150 },
+    { field: "lastName", headerName: "Last Name", width: 150 },
+    { field: "jobPosition", headerName: "Job Position", width: 200 },
+    { field: "dateApplied", headerName: "Date Applied", width: 150 },
     {
-      field: 'stage',
-      headerName: 'Stage',
+      field: "stage",
+      headerName: "Stage",
       width: 150,
       renderCell: (params) => (
-        <span>{params.row.stage || 'Not Yet Assigned'}</span>
+        <span>{params.row.stage || "Not Yet Assigned"}</span>
       ),
     },
     {
-      field: 'testRating',
-      headerName: 'Test Rating',
+      field: "testRating",
+      headerName: "Test Rating",
+      width: 150,
+      renderCell: (params) => <span>{params.row.testRating || "N/A"}</span>,
+    },
+    {
+      field: "interviewRating",
+      headerName: "Interview Rating",
       width: 150,
       renderCell: (params) => (
-        <span>{params.row.testRating || 'N/A'}</span>
+        <span>{params.row.interviewRating || "N/A"}</span>
       ),
     },
     {
-      field: 'interviewRating',
-      headerName: 'Interview Rating',
+      field: "totalScore",
+      headerName: "Total Score",
+      width: 150,
+      renderCell: (params) => <span>{params.row.totalScore || "N/A"}</span>,
+    },
+    {
+      field: "candidateStatus",
+      headerName: "Status",
       width: 150,
       renderCell: (params) => (
-        <span>{params.row.interviewRating || 'N/A'}</span>
+        <span>{params.row.candidateStatus || "Pending"}</span>
       ),
     },
     {
-      field: 'totalScore',
-      headerName: 'Total Score',
-      width: 150,
-      renderCell: (params) => (
-        <span>{params.row.totalScore || 'N/A'}</span>
-      ),
-    },
-    {
-      field: 'candidateStatus',
-      headerName: 'Status',
-      width: 150,
-      renderCell: (params) => (
-        <span>{params.row.candidateStatus || 'Pending'}</span>
-      ),
-    },
-    {
-      field: 'action',
-      headerName: 'Action',
+      field: "action",
+      headerName: "Action",
       width: 350,
       renderCell: (params) => {
         const candidate = params.row;
         const showRejectButton =
-          (candidate.stage === 'Test' && candidate.testRating < 25) ||
-          (candidate.stage === 'Interview' && candidate.interviewRating < 25);
+          (candidate.stage === "Test" && candidate.testRating < 25) ||
+          (candidate.stage === "Interview" && candidate.interviewRating < 25);
 
         return (
           <div className="flex items-center gap-2">
@@ -196,11 +236,13 @@ const CandidatesTable = ({ searchTerm, filterStatus = 'Accepted' }) => {
   return (
     <div className="relative w-full h-[500px] bg-white border border-gray-200 rounded-lg shadow overflow-y-auto">
       <DataGrid
-        rows={data.filter(item => item.status === filterStatus).filter(item =>
-          `${item.firstName} ${item.lastName} ${item.jobPosition}`
-            .toLowerCase()
-            .includes(searchTerm.toLowerCase())
-        )}
+        rows={data
+          .filter((item) => item.status === filterStatus)
+          .filter((item) =>
+            `${item.firstName} ${item.lastName} ${item.jobPosition}`
+              .toLowerCase()
+              .includes(searchTerm.toLowerCase())
+          )}
         columns={columns}
         pageSize={15}
         rowsPerPageOptions={[15]}
@@ -227,38 +269,40 @@ const CandidatesTable = ({ searchTerm, filterStatus = 'Accepted' }) => {
                 <strong>Job Position:</strong> {selectedCandidate.jobPosition}
               </p>
               <p>
-                <strong>Date Applied:</strong>{' '}
+                <strong>Date Applied:</strong>{" "}
                 {new Date(selectedCandidate.dateApplied).toLocaleDateString()}
               </p>
 
               <div>
-                <label><strong>Stage:</strong></label>
+                <label>
+                  <strong>Stage:</strong>
+                </label>
                 <div className="flex flex-col">
                   <label>
                     <input
                       type="radio"
                       value="UnderReview"
-                      checked={stage === 'UnderReview'}
+                      checked={stage === "UnderReview"}
                       onChange={handleStageChange}
-                    />{' '}
+                    />{" "}
                     UnderReview
                   </label>
                   <label>
                     <input
                       type="radio"
                       value="Test"
-                      checked={stage === 'Test'}
+                      checked={stage === "Test"}
                       onChange={handleStageChange}
-                    />{' '}
+                    />{" "}
                     Test
                   </label>
                   <label>
                     <input
                       type="radio"
                       value="Interview"
-                      checked={stage === 'Interview'}
+                      checked={stage === "Interview"}
                       onChange={handleStageChange}
-                    />{' '}
+                    />{" "}
                     Interview
                   </label>
                 </div>
@@ -266,7 +310,9 @@ const CandidatesTable = ({ searchTerm, filterStatus = 'Accepted' }) => {
 
               <div className="space-y-2">
                 <div>
-                  <label><strong>Test Rating:</strong></label>
+                  <label>
+                    <strong>Test Rating:</strong>
+                  </label>
                   <input
                     type="number"
                     min="0"
@@ -277,7 +323,9 @@ const CandidatesTable = ({ searchTerm, filterStatus = 'Accepted' }) => {
                   />
                 </div>
                 <div>
-                  <label><strong>Interview Rating:</strong></label>
+                  <label>
+                    <strong>Interview Rating:</strong>
+                  </label>
                   <input
                     type="number"
                     min="0"

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import {
   Dashboard as DashboardIcon,
   SettingsAccessibility as SettingsAccessibilityIcon,
@@ -18,14 +18,14 @@ import {
   Group as CandidatesIcon,
   Analytics as JobsReportIcon, // New icon for Jobs Report
   ListAlt as ApplicantsReportIcon, // New icon for Applicants Report
-  Person as EmployeeReportIcon // New icon for Employee Reports
-} from '@mui/icons-material';
-import { NavLink, useLocation } from 'react-router-dom';
+  Person as EmployeeReportIcon, // New icon for Employee Reports
+} from "@mui/icons-material";
+import { NavLink, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [isReportOpen, setIsReportOpen] = useState(false);
-  const [activeSubmenu, setActiveSubmenu] = useState('');
+  const [activeSubmenu, setActiveSubmenu] = useState("");
   const location = useLocation();
 
   const toggleSidebar = () => {
@@ -44,21 +44,21 @@ const Sidebar = () => {
   useEffect(() => {
     // Determine which submenu to open based on the current route
     const path = location.pathname;
-    if (path.includes('/dashboard_2/reports')) {
+    if (path.includes("/dashboard_2/reports")) {
       setIsReportOpen(true);
-      if (path.includes('jobs')) setActiveSubmenu('jobs');
-      else if (path.includes('applicants')) setActiveSubmenu('applicants');
-      else if (path.includes('employees')) setActiveSubmenu('employees');
+      if (path.includes("jobs")) setActiveSubmenu("jobs");
+      else if (path.includes("applicants")) setActiveSubmenu("applicants");
+      else if (path.includes("employees")) setActiveSubmenu("employees");
     } else {
       setIsReportOpen(false);
-      setActiveSubmenu('');
+      setActiveSubmenu("");
     }
   }, [location]);
 
   return (
     <div
       className={`min-h-screen bg-white border-r border-gray-300 transition-all duration-500 ${
-        isOpen ? 'flex-1 w-64' : 'w-25'
+        isOpen ? "flex-1 w-64" : "w-25"
       }`}
     >
       {/* TOP */}
@@ -76,7 +76,7 @@ const Sidebar = () => {
         <MenuIcon
           onClick={toggleSidebar}
           className={`cursor-pointer text-accent transition-transform duration-500 ${
-            isOpen ? '' : 'rotate-180'
+            isOpen ? "" : "rotate-180"
           }`}
         />
       </div>
@@ -84,13 +84,13 @@ const Sidebar = () => {
       {/* CENTER */}
       <div
         className={`overflow-y-auto h-[calc(100vh-50px)] ${
-          isOpen ? 'pl-4' : 'pl-2'
+          isOpen ? "pl-4" : "pl-2"
         }`}
       >
         <ul className="m-0 p-0">
           <p
             className={`text-xs font-bold text-gray-500 ${
-              isOpen ? 'mt-4 mb-2.5' : 'mt-4 mb-1'
+              isOpen ? "mt-4 mb-2.5" : "mt-4 mb-1"
             }`}
           >
             Main
@@ -103,7 +103,9 @@ const Sidebar = () => {
           />
           <NavItem
             to="/dashboard_2/attendance"
-            icon={<SettingsAccessibilityIcon className="text-lg text-accent mr-1" />}
+            icon={
+              <SettingsAccessibilityIcon className="text-lg text-accent mr-1" />
+            }
             label="Attendance"
             isOpen={isOpen}
           />
@@ -115,7 +117,7 @@ const Sidebar = () => {
           />
           <p
             className={`text-xs font-bold text-gray-500 ${
-              isOpen ? 'mt-4 mb-2.5' : 'mt-4 mb-1'
+              isOpen ? "mt-4 mb-2.5" : "mt-4 mb-1"
             }`}
           >
             Control
@@ -159,49 +161,51 @@ const Sidebar = () => {
           <li>
             <div
               className={`flex items-center cursor-pointer p-2 rounded-lg mr-3 mb-1 transition-colors duration-300 ${
-                isReportOpen || !isOpen ? 'bg-blue-200' : 'hover:bg-blue-100'
+                isReportOpen || !isOpen ? "bg-blue-200" : "hover:bg-blue-100"
               }`}
               onClick={toggleReportSubmenu}
             >
               <ReportIcon className="text-lg text-accent mr-1" />
-              {isOpen && (
-                <span className="text-sm text-primary">Reports</span>
-              )}
+              {isOpen && <span className="text-sm text-primary">Reports</span>}
               {isOpen && (
                 <div className="ml-auto">
                   {isReportOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                 </div>
               )}
             </div>
-            {(isReportOpen && isOpen) && (
+            {isReportOpen && isOpen && (
               <ul className="pl-4">
                 <NavSubItem
                   to="/dashboard_2/reports/jobs"
                   icon={<JobsReportIcon className="text-sm text-accent mr-1" />}
                   label="Jobs Report"
-                  isActive={activeSubmenu === 'jobs'}
-                  onClick={() => handleSubmenuClick('jobs')}
+                  isActive={activeSubmenu === "jobs"}
+                  onClick={() => handleSubmenuClick("jobs")}
                 />
                 <NavSubItem
                   to="/dashboard_2/reports/applicants"
-                  icon={<ApplicantsReportIcon className="text-sm text-accent mr-1" />}
+                  icon={
+                    <ApplicantsReportIcon className="text-sm text-accent mr-1" />
+                  }
                   label="Applicants Report"
-                  isActive={activeSubmenu === 'applicants'}
-                  onClick={() => handleSubmenuClick('applicants')}
+                  isActive={activeSubmenu === "applicants"}
+                  onClick={() => handleSubmenuClick("applicants")}
                 />
                 <NavSubItem
                   to="/dashboard_2/reports/employees"
-                  icon={<EmployeeReportIcon className="text-sm text-accent mr-1" />}
+                  icon={
+                    <EmployeeReportIcon className="text-sm text-accent mr-1" />
+                  }
                   label="Employee Reports"
-                  isActive={activeSubmenu === 'employees'}
-                  onClick={() => handleSubmenuClick('employees')}
+                  isActive={activeSubmenu === "employees"}
+                  onClick={() => handleSubmenuClick("employees")}
                 />
               </ul>
             )}
           </li>
           <p
             className={`text-xs font-bold text-gray-500 ${
-              isOpen ? 'mt-4 mb-2.5' : 'mt-4 mb-1'
+              isOpen ? "mt-4 mb-2.5" : "mt-4 mb-1"
             }`}
           >
             Account
@@ -219,7 +223,7 @@ const Sidebar = () => {
             isOpen={isOpen}
           />
           <NavItem
-            to="/dashboard_2/logout"
+            to="/hr-login"
             icon={<LogoutIcon className="text-lg text-accent mr-1" />}
             label="Logout"
             isOpen={isOpen}
@@ -236,35 +240,39 @@ const NavItem = ({ to, icon, label, isOpen }) => (
       to={to}
       className={({ isActive }) =>
         `flex items-center cursor-pointer p-2 rounded-lg mr-3 mb-1 transition-colors duration-300 ${
-          isActive ? 'bg-blue-200 hover:bg-blue-200' : 'hover:bg-blue-100'
+          isActive ? "bg-blue-200 hover:bg-blue-200" : "hover:bg-blue-100"
         }`
       }
     >
       {icon}
-      {isOpen && (
-        <span className={`text-sm text-primary`}>
-          {label}
-        </span>
-      )}
+      {isOpen && <span className={`text-sm text-primary`}>{label}</span>}
     </NavLink>
-  </li>)
-  const NavSubItem = ({ to, icon, label, isActive, onClick }) => (
-    <li>
-      <NavLink
-        to={to}
-        className={`flex items-center cursor-pointer p-2 rounded-lg mb-1 transition-colors duration-300 ${
-          isActive ? 'text-blue-600 font-bold hover:bg-blue-100' : 'hover:bg-blue-100'
-        }`}
-        onClick={onClick}
-      > 
-        {icon}
+  </li>
+);
+const NavSubItem = ({ to, icon, label, isActive, onClick }) => (
+  <li>
+    <NavLink
+      to={to}
+      className={`flex items-center cursor-pointer p-2 rounded-lg mb-1 transition-colors duration-300 ${
+        isActive
+          ? "text-blue-600 font-bold hover:bg-blue-100"
+          : "hover:bg-blue-100"
+      }`}
+      onClick={onClick}
+    >
+      {icon}
 
-        <span className={` ${isActive ? 'text-blue-800 font-bold text-[0.9rem]' : 'text-primary text-sm'}`}>
-          {label}
-        </span>
-      </NavLink>
-    </li>
-  );
-  
-  export default Sidebar;
-  
+      <span
+        className={` ${
+          isActive
+            ? "text-blue-800 font-bold text-[0.9rem]"
+            : "text-primary text-sm"
+        }`}
+      >
+        {label}
+      </span>
+    </NavLink>
+  </li>
+);
+
+export default Sidebar;

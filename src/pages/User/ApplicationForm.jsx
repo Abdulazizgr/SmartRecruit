@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import emailjs from 'emailjs-com';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import emailjs from "emailjs-com";
+import axios from "axios";
 
 const ApplicationForm = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phoneNumber: '',
-    address: '',
-    resume: '',
-    coverLetter: '',
-    additionalDocument: '',
-    jobPosition: '',
-    departmentId: '', // Ensure departmentId is included
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    address: "",
+    resume: "",
+    coverLetter: "",
+    additionalDocument: "",
+    jobPosition: "",
+    departmentId: "", // Ensure departmentId is included
   });
 
   const [loading, setLoading] = useState(false);
@@ -22,12 +22,12 @@ const ApplicationForm = () => {
   useEffect(() => {
     // Fetch departments data from json-server
     axios
-      .get('http://localhost:5000/departments')
+      .get("http://localhost:5000/departments")
       .then((response) => {
         setDepartments(response.data);
       })
       .catch((error) => {
-        console.error('Error fetching departments:', error);
+        console.error("Error fetching departments:", error);
       });
   }, []);
 
@@ -41,13 +41,15 @@ const ApplicationForm = () => {
     setFormData((prevState) => ({ ...prevState, [name]: files[0] }));
   };
 
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
 
-    const serviceID = 'service_n7zyrza';
-    const templateID = 'template_xuuspy6';
-    const userID = 'd_Qav9-GzQmZYbbzo';
+    const serviceID = "service_rf2nonv";
+    const templateID = "template_kntkg2n";
+    const userID = "FrC-VSaK5g_MEJ_zu";
 
     // Find selected department name
     const selectedDepartment = departments.find(
@@ -65,7 +67,7 @@ const ApplicationForm = () => {
       additionalDocument: formData.additionalDocument.name,
       jobPosition: selectedDepartment
         ? selectedDepartment.name
-        : 'Not Selected',
+        : "Not Selected",
     };
 
     emailjs
@@ -73,38 +75,38 @@ const ApplicationForm = () => {
       .then(() => {
         // Add application to json-server
         axios
-          .post('http://localhost:5000/applicants', {
+          .post("http://localhost:5000/applicants", {
             ...formData,
-            status: 'Pending', // Ensure status is set to 'Pending'
-            dateApplied: new Date().toISOString().split('T')[0], // Set dateApplied to current date
+            status: "Pending", // Ensure status is set to 'Pending'
+            dateApplied: new Date().toISOString().split("T")[0], // Set dateApplied to current date
           })
           .then(() => {
-            alert('Application submitted successfully');
+            alert("Application submitted successfully");
             setLoading(false);
 
             // Reset form data
             setFormData({
-              firstName: '',
-              lastName: '',
-              email: '',
-              phoneNumber: '',
-              address: '',
-              resume: '',
-              coverLetter: '',
-              additionalDocument: '',
-              jobPosition: '',
-              departmentId: '',
+              firstName: "",
+              lastName: "",
+              email: "",
+              phoneNumber: "",
+              address: "",
+              resume: "",
+              coverLetter: "",
+              additionalDocument: "",
+              jobPosition: "",
+              departmentId: "",
             });
           })
           .catch((error) => {
-            console.error('Error saving application:', error);
-            alert('Error submitting application');
+            console.error("Error saving application:", error);
+            alert("Error submitting application");
             setLoading(false);
           });
       })
       .catch((error) => {
-        console.error('Error sending email:', error);
-        alert('Error submitting application');
+        console.error("Error sending email:", error);
+        alert("Error submitting application");
         setLoading(false);
       });
   };
@@ -114,7 +116,7 @@ const ApplicationForm = () => {
       <button
         type="button"
         className="uppercase py-2 px-4 rounded-lg bg-gray-500 border-2 border-transparent text-white text-md ml-4 hover:bg-gray-700"
-        onClick={() => (window.location.href = '/')}
+        onClick={() => (window.location.href = "/")}
       >
         Back to Home
       </button>
@@ -256,11 +258,11 @@ const ApplicationForm = () => {
               <button
                 type="submit"
                 className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
-                  loading ? 'opacity-50 cursor-not-allowed' : ''
+                  loading ? "opacity-50 cursor-not-allowed" : ""
                 }`}
                 disabled={loading}
               >
-                {loading ? 'Submitting...' : 'Submit'}
+                {loading ? "Submitting..." : "Submit"}
               </button>
             </div>
           </form>

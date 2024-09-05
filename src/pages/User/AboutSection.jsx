@@ -8,7 +8,7 @@ import {
 
 const AboutSection = () => {
   return (
-    <section id='aboutsection' className="text-gray-700 body-font pt-8">
+    <section id='aboutsection' className="text-gray-700 body-font pt-8 bg-blue-50">
       <div className="flex justify-center mt-10 text-4xl font-regular">
         Why Choose Us?
       </div>
